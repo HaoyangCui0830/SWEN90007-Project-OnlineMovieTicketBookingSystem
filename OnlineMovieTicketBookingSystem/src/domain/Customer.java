@@ -2,45 +2,48 @@ package domain;
 
 public class Customer extends DomainObject{
 
-	private int id = -1;
+	private int customerId = -1;
 	private String firstNameString;
 	private String lastNameString;
 	
+
 	/**
-	 * @param id
+	 * @param customerId
 	 */
-	public Customer(int id) {
+	public Customer(int customerId) {
 		super();
-		this.id = id;
+		this.customerId = customerId;
 	}
-	
+
 	/**
-	 * @param id
+	 * @param customerId
 	 * @param firstNameString
 	 * @param lastNameString
 	 */
-	public Customer(int id, String firstNameString, String lastNameString) {
+	public Customer(int customerId, String firstNameString, String lastNameString) {
 		super();
-		this.id = id;
+		this.customerId = customerId;
 		this.firstNameString = firstNameString;
 		this.lastNameString = lastNameString;
 	}
 
+	
+	
 	/**
-	 * @return the id
+	 * @return the customerId
 	 */
-	public int getId() {
-		if(this.id == -1) {
+	public int getCustomerId() {
+		if(this.customerId == -1) {
 			load();
 		}
-		return id;
+		return customerId;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param customerId the customerId to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	/**

@@ -3,22 +3,47 @@ package domain;
 import java.util.ArrayList;
 
 public class Cinema extends DomainObject{
+	private int cinemaId = -1;
 	private String name;
 	private String address;
 	private ArrayList<Movie> movies;
-	
-	
+
+
 	/**
+	 * @param cinemaId
 	 * @param name
 	 * @param address
 	 * @param movies
 	 */
-	public Cinema(String name, String address, ArrayList<Movie> movies) {
+	public Cinema(int cinemaId, String name, String address, ArrayList<Movie> movies) {
 		super();
+		this.cinemaId = cinemaId;
 		this.name = name;
 		this.address = address;
 		this.movies = movies;
 	}
+
+	
+	
+	/**
+	 * @return the cinemaId
+	 */
+	public int getCinemaId() {
+		if(this.cinemaId == -1) {
+			load();
+		}
+		return cinemaId;
+	}
+
+
+
+	/**
+	 * @param cinemaId the cinemaId to set
+	 */
+	public void setCinemaId(int cinemaId) {
+		this.cinemaId = cinemaId;
+	}
+
 
 
 	/**

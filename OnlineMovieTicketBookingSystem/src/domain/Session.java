@@ -1,64 +1,96 @@
 package domain;
 
+import java.sql.Time;
+
 public class Session extends DomainObject{
 	
-	private int id = -1;
-	private int theaterId = -1;
+	private int sessionId = -1;
+	private TimeRange timeRange;
 	private int movieId = -1;
 	private int seats = -1;
+	private int availableSeats = -1;
 	
 	
+
 	/**
-	 * @param id
-	 * @param theaterId
+	 * @param sessionId
+	 * @param timeRange
 	 * @param movieId
 	 * @param seats
+	 * @param availableSeats
 	 */
-	public Session(int id, int theaterId, int movieId, int seats) {
+	public Session(int sessionId, TimeRange timeRange, int movieId, int seats, int availableSeats) {
 		super();
-		this.id = id;
-		this.theaterId = theaterId;
+		this.sessionId = sessionId;
+		this.timeRange = timeRange;
 		this.movieId = movieId;
 		this.seats = seats;
+		this.availableSeats = availableSeats;
 	}
 
 
 	/**
-	 * @return the id
+	 * @return the sessionId
 	 */
-	public int getId() {
-		if(this.id == -1) {
+	public int getSessionId() {
+		if(this.sessionId == -1) {
 			load();
 		}
-		return id;
+		return sessionId;
 	}
 
 
+
+
 	/**
-	 * @param id the id to set
+	 * @param sessionId the sessionId to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setSessionId(int sessionId) {
+		this.sessionId = sessionId;
 	}
 
+	
 
 	/**
-	 * @return the theaterId
+	 * @return the timeRange
 	 */
-	public int getTheaterId() {
-		if(this.theaterId == -1) {
+	public TimeRange getTimeRange() {
+		if(this.timeRange == null) {
 			load();
 		}
-		return theaterId;
+		return timeRange;
 	}
 
 
 	/**
-	 * @param theaterId the theaterId to set
+	 * @param timeRange the timeRange to set
 	 */
-	public void setTheaterId(int theaterId) {
-		this.theaterId = theaterId;
+	public void setTimeRange(TimeRange timeRange) {
+		this.timeRange = timeRange;
 	}
+
+
+	/**
+	 * @return the availableSeats
+	 */
+	public int getAvailableSeats() {
+		if(this.availableSeats == -1) {
+			load();
+		}
+		return availableSeats;
+	}
+
+
+
+
+	/**
+	 * @param availableSeats the availableSeats to set
+	 */
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+
+
 
 
 	/**
