@@ -1,11 +1,11 @@
 DROP TABLE Movies;
 
 CREATE TABLE Movies(
-	id INT,
+	movie_id INT,
 	name VARCHAR(150),
 	length TIME,
 	price FLOAT,
-	PRIMARY KEY (id)
+	PRIMARY KEY (movie_id)
 );
 
 INSERT INTO Movies VALUES (111,'THE LION KING', '01:58:00', 20.00);

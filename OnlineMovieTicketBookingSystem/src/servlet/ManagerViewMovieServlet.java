@@ -1,11 +1,17 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import domain.Movie;
 
 /**
  * Servlet implementation class ManagerViewMovieServlet
@@ -26,8 +32,13 @@ public class ManagerViewMovieServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		List<Movie> movies = new ArrayList<Movie>();
+		movies = Movie.getAllMovies();
+		for (int i = 0; i<movies.size();i++) { System.out.println(movies.get(i).getName());}
+		request.setAttribute("movies", movies);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

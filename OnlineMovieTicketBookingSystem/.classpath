@@ -8,7 +8,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/penguin/SWEN90007-Project-OnlineMovieTicketBookingSystem/OnlineMovieTicketBookingSystem/postgresql-42.2.6.jar"/>
+	<classpathentry kind="lib" path="/Users/penguin/SWEN90007-Project-OnlineMovieTicketBookingSystem/OnlineMovieTicketBookingSystem/postgresql-42.2.6.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="/Users/penguin/SWEN90007-Project-OnlineMovieTicketBookingSystem/Servers/apache-tomcat-9.0.24/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

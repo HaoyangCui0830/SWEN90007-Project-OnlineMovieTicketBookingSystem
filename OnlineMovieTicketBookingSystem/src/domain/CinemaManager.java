@@ -2,45 +2,49 @@ package domain;
 
 public class CinemaManager extends DomainObject{
 
-	private int id = -1;
+	private int cinemaManagerId = -1;
 	private String firstNameString;
 	private String lastNameString;
 	
+	
+
 	/**
-	 * @param id
+	 * @param cinemaManagerId
 	 */
-	public CinemaManager(int id) {
+	public CinemaManager(int cinemaManagerId) {
 		super();
-		this.id = id;
+		this.cinemaManagerId = cinemaManagerId;
 	}
 
 	/**
-	 * @param id
+	 * @param cinemaManagerId
 	 * @param firstNameString
 	 * @param lastNameString
 	 */
-	public CinemaManager(int id, String firstNameString, String lastNameString) {
+	public CinemaManager(int cinemaManagerId, String firstNameString, String lastNameString) {
 		super();
-		this.id = id;
+		this.cinemaManagerId = cinemaManagerId;
 		this.firstNameString = firstNameString;
 		this.lastNameString = lastNameString;
 	}
+	
+	
 
 	/**
-	 * @return the id
+	 * @return the cinemaManagerId
 	 */
-	public int getId() {
-		if(this.id == -1) {
+	public int getCinemaManagerId() {
+		if(this.cinemaManagerId == -1) {
 			load();
 		}
-		return id;
+		return cinemaManagerId;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param cinemaManagerId the cinemaManagerId to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setCinemaManagerId(int cinemaManagerId) {
+		this.cinemaManagerId = cinemaManagerId;
 	}
 
 	/**
