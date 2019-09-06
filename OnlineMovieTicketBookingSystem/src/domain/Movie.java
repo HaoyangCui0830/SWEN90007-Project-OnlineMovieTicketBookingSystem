@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataMapper.MovieMapper;
+import utils.IdentityMap;
 
 public class Movie extends DomainObject{
 	
@@ -12,6 +13,7 @@ public class Movie extends DomainObject{
 	private String name;
 	private Time length;
 	private float price = -1;
+	private MovieMapper movieMapper;
 
 	
 	/**
@@ -26,6 +28,7 @@ public class Movie extends DomainObject{
 		this.name = name;
 		this.length = length;
 		this.price = price;
+		movieMapper = new MovieMapper();
 	}
 	
 
@@ -34,6 +37,7 @@ public class Movie extends DomainObject{
 	 */
 	public Movie() {
 		super();
+		movieMapper = new MovieMapper();
 	}
 
 
@@ -121,6 +125,21 @@ public class Movie extends DomainObject{
 		List<Movie> movies = new ArrayList<Movie>();
 		movies = movieMapper.findAllMovies();
 		return movies;
+	}
+	
+	public static Movie getMovieById(int movieId) {
+		Movie movie = new Movie();
+		movie.setMovieId(movieId);
+		IdentityMap<Movie> identityMap = IdentityMap.getInstance(movie);
+		Movie movieInIdentityMap = identityMap.get(movie.getMovieId());
+		if(movieInIdentityMap != null) {
+			Movie result = movieInIdentityMap;
+			return result;
+		}
+		else {
+			MovieMapper movieMapper = new MovieMapper();
+			return movieMapper.findMovieById(movieId);
+		}
 	}
 	
 	

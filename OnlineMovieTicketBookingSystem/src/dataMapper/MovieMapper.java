@@ -99,14 +99,36 @@ public class MovieMapper extends DataMapper{
 				movie.setPrice(rs.getFloat(4));
 				identityMap.put(movie.getMovieId(), movie);
 				result.add(movie);
-				
 			}
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view Problem");
 		}
 		return result;
-		
+	}
+	
+	public Movie findMovieById(int movieId) {
+		String findMovieByIdString = "SELECT * FROM Movies WHERE movie_id = ?";
+		Movie result = new Movie();
+		try {
+			PreparedStatement stmt = DBConnection.prepare(findMovieByIdString);
+			stmt.setInt(1, movieId);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Movie movie = new Movie();
+				IdentityMap<Movie> identityMap = IdentityMap.getInstance(movie);
+				movie.setMovieId(rs.getInt(1));
+				movie.setName(rs.getString(2));
+				movie.setLength(rs.getTime(3));
+				movie.setPrice(rs.getFloat(4));
+				identityMap.put(movie.getMovieId(), movie);
+				result = movie;
+			}
+		}
+		catch(SQLException e) {
+			System.out.println(this.getClass().toString()+" view by id Problem");
+		}
+		return result;
 	}
 	
 }

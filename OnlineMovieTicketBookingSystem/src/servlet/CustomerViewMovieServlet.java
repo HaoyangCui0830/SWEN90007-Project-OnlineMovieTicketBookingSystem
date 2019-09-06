@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Movie;
+import service.MovieService;
+
 /**
  * Servlet implementation class CustomerViewMovieServlet
  */
@@ -26,8 +29,11 @@ public class CustomerViewMovieServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// TODO get the movieId
+		int movieId = 0;
+		MovieService movieService = new MovieService();
+		Movie movies = movieService.getMovieById(movieId);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

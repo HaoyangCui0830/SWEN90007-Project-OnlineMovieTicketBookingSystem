@@ -33,7 +33,7 @@
         %>
              
         </table>  
-<button onclick="javascript:location.href='ManagerViewMovieServlet'" type="button" class="btn btn-info" style="
+<button onclick="javascript:location.href='ManagerViewAllMoviesServlet'" type="button" class="btn btn-info" style="
 	            width: 30%;margin: 20% 35% 0 35%;height: 60px;"><i class="iconfont">&#xe601;</i>&nbsp;View all the Movies!</button>
 	<script src="js/bootstrap.js"></script>
 </body>
