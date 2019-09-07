@@ -34,9 +34,10 @@ public class ManagerViewMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO get the movieId
-		int movieId = 0;
+		int movieId = 111;
 		MovieService movieService = new MovieService();
 		Movie movies = movieService.getMovieById(movieId);
+		System.out.println(movies.getName());
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

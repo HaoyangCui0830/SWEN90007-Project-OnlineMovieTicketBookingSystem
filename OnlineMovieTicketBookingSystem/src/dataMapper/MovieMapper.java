@@ -1,11 +1,12 @@
 package dataMapper;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
+//import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import domain.Cinema;
 import domain.DomainObject;
 import domain.Movie;
 import utils.DBConnection;
@@ -19,6 +20,7 @@ public class MovieMapper extends DataMapper{
 		String insertMovieString = "INSERT INTO Movies (movie_id, name, length, price) VALUES"
 				+ "(?,?,?,?)";
 		int result = 0;
+		//Boolean result = false;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(insertMovieString);
 			stmt.setInt(1, movie.getMovieId());
@@ -26,9 +28,13 @@ public class MovieMapper extends DataMapper{
 			stmt.setTime(3, movie.getLength());
 			stmt.setFloat(4, movie.getPrice());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
+			System.out.println(result);
+			
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" insert Problem");
+			System.out.println(this.getClass().toString()+" insert movie Problem");
 		}
 		if(result == 0) {
 			return false;
@@ -49,7 +55,7 @@ public class MovieMapper extends DataMapper{
 			result = stmt.executeUpdate();
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" delete Problem");
+			System.out.println(this.getClass().toString()+" delete movie Problem");
 		}
 		if(result == 0) {
 			return false;
@@ -72,9 +78,10 @@ public class MovieMapper extends DataMapper{
 			stmt.setFloat(3, movie.getPrice());
 			stmt.setInt(4, movie.getMovieId());
 			result = stmt.executeUpdate();
+			
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" update Problem");
+			System.out.println(this.getClass().toString()+" update movie Problem");
 		}
 		if(result == 0) {
 			return false;
@@ -102,7 +109,7 @@ public class MovieMapper extends DataMapper{
 			}
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" view Problem");
+			System.out.println(this.getClass().toString()+" view movie Problem");
 		}
 		return result;
 	}
@@ -126,7 +133,31 @@ public class MovieMapper extends DataMapper{
 			}
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" view by id Problem");
+			System.out.println(this.getClass().toString()+" view by movie id Problem");
+		}
+		return result;
+	}
+	
+	public List<Cinema> findCinemaByMovieId(int movieId) {
+		String findCinemaByMovieIdString = "SELECT cinema_id, name, ADDRESS FROM Cinema INNER JOIN Cinema_Movie ON "
+				+ "Cinema.cinema_id = Cinema_Movie.cinemaID WHERE movieId = ?";
+		List<Cinema> result = new ArrayList<Cinema>();
+		try {
+			PreparedStatement stmt = DBConnection.prepare(findCinemaByMovieIdString);
+			stmt.setInt(1, movieId);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Cinema cinema = new Cinema();
+				IdentityMap<Cinema> identityMap = IdentityMap.getInstance(cinema);
+				cinema.setCinemaId(rs.getInt(1));
+				cinema.setName(rs.getString(2));
+				cinema.setAddress(rs.getString(3));
+				identityMap.put(cinema.getCinemaId(), cinema);
+				result.add(cinema);
+			}
+		}
+		catch(SQLException e) {
+			System.out.println(this.getClass().toString()+" view cinemas by movie id Problem");
 		}
 		return result;
 	}

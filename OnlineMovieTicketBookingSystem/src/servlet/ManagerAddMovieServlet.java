@@ -1,11 +1,16 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Time;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import domain.Movie;
+import service.MovieService;
 
 /**
  * Servlet implementation class ManagerAddMovieServlet
@@ -27,7 +32,11 @@ public class ManagerAddMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		Movie movie = new Movie(114, "'The Death of Superman'", Time.valueOf("01:45:00") , Float.valueOf(20));
+		MovieService movieService = new MovieService();
+		movieService.insertMovie(movie);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
