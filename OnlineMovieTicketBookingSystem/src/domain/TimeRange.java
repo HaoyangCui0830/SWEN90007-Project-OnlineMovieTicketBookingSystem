@@ -16,6 +16,15 @@ public class TimeRange {
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}
+	
+
+	/**
+	 * 
+	 */
+	public TimeRange() {
+		super();
+	}
+
 
 	/**
 	 * @return the startTime

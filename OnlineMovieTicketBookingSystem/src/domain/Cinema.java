@@ -26,6 +26,15 @@ public class Cinema extends DomainObject{
 	
 	
 	/**
+	 * 
+	 */
+	public Cinema() {
+		super();
+	}
+
+
+
+	/**
 	 * @return the cinemaId
 	 */
 	public int getCinemaId() {

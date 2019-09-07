@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +14,16 @@ import domain.Movie;
 import service.MovieService;
 
 /**
- * Servlet implementation class CustomerViewMovieServlet
+ * Servlet implementation class CustomerViewAllMoviesServlet
  */
-@WebServlet("/CustomerViewMovieServlet")
-public class CustomerViewMovieServlet extends HttpServlet {
+@WebServlet("/CustomerViewAllMoviesServlet")
+public class CustomerViewAllMoviesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerViewMovieServlet() {
+    public CustomerViewAllMoviesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,10 +32,12 @@ public class CustomerViewMovieServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO get the movieId
-		int movieId = 0;
+		// TODO Auto-generated method stub
+		List<Movie> movies = new ArrayList<Movie>();
 		MovieService movieService = new MovieService();
-		Movie movies = movieService.getMovieById(movieId);
+		movies = movieService.getAllMovies();
+		request.setAttribute("movies", movies);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

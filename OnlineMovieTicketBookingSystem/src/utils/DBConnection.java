@@ -1,9 +1,6 @@
 package utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnection {
 
@@ -32,7 +29,7 @@ public class DBConnection {
 		try {
 			DriverManager.registerDriver(new org.postgresql.Driver());
 			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-			dbConnection.setAutoCommit(false);
+			//dbConnection.setAutoCommit(false);
 			return dbConnection;
 		}
 		catch(SQLException e){
@@ -40,6 +37,10 @@ public class DBConnection {
 		}
 		System.out.println("Connection Problem");
 		return null;
+	}
+	
+	public static void closeConnection() throws SQLException{
+		dbConnection.close();
 	}
 	
 	

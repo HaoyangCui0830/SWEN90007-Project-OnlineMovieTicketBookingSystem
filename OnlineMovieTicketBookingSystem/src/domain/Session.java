@@ -2,6 +2,8 @@ package domain;
 
 import java.sql.Time;
 
+import dataMapper.SessionMapper;
+
 public class Session extends DomainObject{
 	
 	private int sessionId = -1;
@@ -27,6 +29,17 @@ public class Session extends DomainObject{
 		this.seats = seats;
 		this.availableSeats = availableSeats;
 	}
+
+	
+
+	/**
+	 * 
+	 */
+	public Session() {
+		super();
+		timeRange = new TimeRange();
+	}
+
 
 
 	/**
@@ -63,10 +76,17 @@ public class Session extends DomainObject{
 
 
 	/**
-	 * @param timeRange the timeRange to set
+	 * @param Time
 	 */
-	public void setTimeRange(TimeRange timeRange) {
-		this.timeRange = timeRange;
+	public void setStartTime(Time startTime) {
+		this.timeRange.setStartTime(startTime);;
+	}
+	
+	/**
+	 * @param Time
+	 */
+	public void setEndTime(Time endTime) {
+		this.timeRange.setEndTime(endTime);;
 	}
 
 
@@ -133,10 +153,21 @@ public class Session extends DomainObject{
 
 	@Override
 	void load() {
-		// TODO Auto-generated method stub
-		super.load();
+		Session session = new SessionMapper().findSessionById(this.sessionId);
+		if(this.movieId == -1) {
+			this.movieId = session.getMovieId();
+		}
+		if(this.seats == -1) {
+			this.seats = session.getSeats();
+		}
+		if(this.availableSeats == -1) {
+			this.availableSeats = session.getAvailableSeats();
+		}
+		if(this.timeRange.getStartTime() == null) {
+			this.getTimeRange().setStartTime(session.getTimeRange().getStartTime());
+		}
+		if(this.timeRange.getEndTime() == null) {
+			this.getTimeRange().setEndTime(session.getTimeRange().getEndTime());
+		}
 	}
-	
-	
-	
 }
