@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="servlet.ManagerViewMovieServlet"%> 
 <%@page import="servlet.ManagerAddMovieServlet"%> 
-<%@page import="servlet.ManagerViewMovieServlet"%> 
+
 <%@page import="domain.Movie"%> 
 <%@page import="java.util.List"%> 
 <!DOCTYPE html>
@@ -38,8 +38,8 @@
 <button onclick="javascript:location.href='ManagerViewAllMoviesServlet'" type="button" class="btn btn-info" style="
 	            width: 30%;margin: 20% 35% 0 35%;height: 60px;"><i class="iconfont">&#xe601;</i>&nbsp;View all the Movies!</button>
 <div class="btn-group btn-group-lg" role="group" aria-label="..." margin="center" >
-  <button type="button" class="btn btn-default" onclick = "javascript:location.href='ManagerAddMoviesServlet'">Add</button>
-  <button type="button" class="btn btn-default">Update</button>
+  <button type="button" class="btn btn-default" onclick = "javascript:location.href='addNewMovie.jsp'">Add</button>
+  <button type="button" class="btn btn-default" onclick = "javascript:location.href='ManagerUpdateMovieServlet'">Update</button>
   <button type="button" class="btn btn-default">Remove</button>
 </div>
 	<script src="js/bootstrap.js"></script>

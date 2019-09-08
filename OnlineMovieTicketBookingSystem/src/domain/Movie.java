@@ -5,7 +5,8 @@ import dataMapper.MovieMapper;
 
 public class Movie extends DomainObject{
 	
-	private int movieId = -1;
+	private static int movieID= 0;
+	//private int movieId = -1;
 	private String name;
 	private Time length;
 	private float price = -1;
@@ -17,13 +18,13 @@ public class Movie extends DomainObject{
 	 * @param length
 	 * @param price
 	 */
-	public Movie(int movieId, String name, Time length, float price) {
+	public Movie(String name, Time length, float price) {
 		super();
-		this.movieId = movieId;
+		//this.movieId = movieId;
 		this.name = name;
 		this.length = length;
 		this.price = price;
-		
+		this.movieID = movieID++;
 	}
 	
 
@@ -41,10 +42,10 @@ public class Movie extends DomainObject{
 	 * @return the movieId
 	 */
 	public int getMovieId() {
-		if(this.movieId == -1) {
+		if(this.movieID == -1) {
 			load();
 		}
-		return movieId;
+		return movieID;
 	}
 
 
@@ -53,7 +54,7 @@ public class Movie extends DomainObject{
 	 * @param movieId the movieId to set
 	 */
 	public void setMovieId(int movieId) {
-		this.movieId = movieId;
+		this.movieID = movieId;
 	}
 
 
@@ -114,7 +115,7 @@ public class Movie extends DomainObject{
 	 * */
 	@Override
 	void load() {
-		Movie movie = new MovieMapper().findMovieById(this.movieId);
+		Movie movie = new MovieMapper().findMovieById(this.movieID);
 		if(this.length == null) {
 			this.length = movie.getLength();
 		}

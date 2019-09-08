@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,9 +34,13 @@ public class ManagerUpdateMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Movie movie = new Movie(113, "The Sound of Music", Time.valueOf("01:30:00") , 10);
+		Movie movie = new Movie("The Sound of Music", Time.valueOf("01:30:00") , 10);
 		MovieService movieService = new MovieService();
 		movieService.updateMovie(movie);
+		List<Movie> movies = new ArrayList<Movie>();
+		movies = movieService.getAllMovies();
+		request.setAttribute("movies", movies);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
