@@ -42,6 +42,19 @@ public class DBConnection {
 		System.out.println("Connection Problem");
 		return null;
 	}
+
+
+	public static void closeConnection() {
+		if (dbConnection!=null) {
+			try {
+				dbConnection.close();
+				dbConnection=null;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+	}
 	
 	
 }
