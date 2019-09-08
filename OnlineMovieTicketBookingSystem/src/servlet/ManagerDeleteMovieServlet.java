@@ -32,9 +32,9 @@ public class ManagerDeleteMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Movie movie = new Movie(113, "The Sound of Music", Time.valueOf("01:30:00") , 10);
-		MovieService movieService = new MovieService();
-		movieService.deleteMovie(movie);
+//		Movie movie = new Movie(113, "The Sound of Music", Time.valueOf("01:30:00") , 10);
+//		MovieService movieService = new MovieService();
+//		movieService.deleteMovie(movie);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

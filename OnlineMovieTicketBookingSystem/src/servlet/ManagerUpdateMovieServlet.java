@@ -34,7 +34,12 @@ public class ManagerUpdateMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Movie movie = new Movie("The Sound of Music", Time.valueOf("01:30:00") , 10);
+		int movieId = Integer.parseInt(request.getParameter("movieId"));
+		String movieName = request.getParameter("movieName");
+		Time time = Time.valueOf(request.getParameter("movieLength"));
+		Float moviePrice = Float.parseFloat(request.getParameter("moviePrice"));
+		
+		Movie movie = new Movie(movieId,movieName, time , moviePrice);
 		MovieService movieService = new MovieService();
 		movieService.updateMovie(movie);
 		List<Movie> movies = new ArrayList<Movie>();

@@ -17,6 +17,7 @@
           <th><b>Movie Name</b></th> 
           <th><b>Moive Length</b></th> 
           <th><b>Movie Price</b></th> 
+          <th><b>Movie ID</b></th> 
          </tr> 
         
         <%List<Movie> std =  
@@ -27,8 +28,8 @@
                 <td><%=s.getName()%></td> 
                 <td><%=s.getLength()%></td> 
                 <td><%=s.getPrice()%></td> 
+                <td><%=s.getMovieId()%></td> 
             </tr> 
-            
         <%}
         %>
              
@@ -36,8 +37,8 @@
 <button onclick="javascript:location.href='ManagerViewAllMoviesServlet'" type="button" class="btn btn-info" style="
 	            width: 30%;margin: 20% 35% 0 35%;height: 60px;"><i class="iconfont">&#xe601;</i>&nbsp;View all the Movies!</button>
 <div class="btn-group btn-group-lg" role="group" aria-label="..." margin="center" >
-  <button type="button" class="btn btn-default" onclick = "javascript:location.href='addNewMovie.jsp'">Add</button>
-  <button type="button" class="btn btn-default" onclick = "javascript:location.href='ManagerUpdateMovieServlet'">Update</button>
+  <button type="button" class="btn btn-default" onclick = "javascript:location.href='addNewMovie.jsp'">Add(Manager only)</button>
+  <button type="button" class="btn btn-default" onclick = "javascript:location.href='updateMovie.jsp'">Update(Manager only)</button>
   <button type="button" class="btn btn-default">Remove</button>
 </div>
 	<script src="js/bootstrap.js"></script>
