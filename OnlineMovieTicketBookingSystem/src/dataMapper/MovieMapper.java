@@ -46,7 +46,9 @@ public class MovieMapper extends DataMapper{
 
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
+		//需要判断是不是3D 电影
 		Movie movie = (Movie)object;
+		System.out.println(movie);
 		String deleteMovieString = "DELETE FROM Movies WHERE movie_id = ?";
 		int result = 0;
 		try {
@@ -55,6 +57,7 @@ public class MovieMapper extends DataMapper{
 			result = stmt.executeUpdate();
 		}
 		catch(SQLException e) {
+			e.printStackTrace();
 			System.out.println(this.getClass().toString()+" delete movie Problem");
 		}
 		if(result == 0) {

@@ -138,5 +138,12 @@ public class Movie extends DomainObject{
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Movie [movieId=" + movieId + ", name=" + name + ", length=" + length + ", price=" + price + "]";
+	}
+	
+	
 	
 }

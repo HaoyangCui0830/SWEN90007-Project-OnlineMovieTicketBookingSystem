@@ -39,7 +39,7 @@
 <div class="btn-group btn-group-lg" role="group" aria-label="..." margin="center" >
   <button type="button" class="btn btn-default" onclick = "javascript:location.href='addNewMovie.jsp'">Add(Manager only)</button>
   <button type="button" class="btn btn-default" onclick = "javascript:location.href='updateMovie.jsp'">Update(Manager only)</button>
-  <button type="button" class="btn btn-default">Remove</button>
+  <button type="button" class="btn btn-default" onclick = "javascript:location.href='deleteMovie.jsp'">Delete(Manager only)</button>
 </div>
 	<script src="js/bootstrap.js"></script>
 </body>
