@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="servlet.ManagerViewMovieServlet"%> 
-<%@page import="servlet.ManagerAddMovieServlet"%> 
-
 <%@page import="domain.Movie"%> 
 <%@page import="java.util.List"%> 
 <!DOCTYPE html>
