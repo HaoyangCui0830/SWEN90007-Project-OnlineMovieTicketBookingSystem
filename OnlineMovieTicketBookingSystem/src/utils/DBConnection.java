@@ -1,16 +1,12 @@
 package utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnection {
 
 	private static String DB_CONNECTION = "jdbc:postgresql://localhost:5432/OnlineMovieTicketBookingSystem";
 	private static String DB_USER = "postgres";
 	private static String DB_PASSWORD = "123456";
-	//private static String DB_PASSWORD = "1q2w3e4r";
 	
 	
 	
@@ -33,7 +29,7 @@ public class DBConnection {
 		try {
 			DriverManager.registerDriver(new org.postgresql.Driver());
 			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-			dbConnection.setAutoCommit(false);
+			//dbConnection.setAutoCommit(false);
 			return dbConnection;
 		}
 		catch(SQLException e){
@@ -42,18 +38,9 @@ public class DBConnection {
 		System.out.println("Connection Problem");
 		return null;
 	}
-
-
-	public static void closeConnection() {
-		if (dbConnection!=null) {
-			try {
-				dbConnection.close();
-				dbConnection=null;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}			
-		}
+	
+	public static void closeConnection() throws SQLException{
+		dbConnection.close();
 	}
 	
 	
