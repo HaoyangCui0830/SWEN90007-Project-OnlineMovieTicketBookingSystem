@@ -24,7 +24,11 @@ public class Movie extends DomainObject{
 		this.name = name;
 		this.length = length;
 		this.price = price;
+<<<<<<< HEAD
 		this.movieID = movieID++;
+=======
+		
+>>>>>>> master
 	}
 	
 
@@ -115,7 +119,11 @@ public class Movie extends DomainObject{
 	 * */
 	@Override
 	void load() {
+<<<<<<< HEAD
 		Movie movie = new MovieMapper().findMovieById(this.movieID);
+=======
+		Movie movie = new MovieMapper().findMovieById(this.movieId);
+>>>>>>> master
 		if(this.length == null) {
 			this.length = movie.getLength();
 		}
