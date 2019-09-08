@@ -1,9 +1,6 @@
 package domain;
 
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.List;
-
 import dataMapper.MovieMapper;
 
 public class Movie extends DomainObject{
@@ -26,6 +23,7 @@ public class Movie extends DomainObject{
 		this.name = name;
 		this.length = length;
 		this.price = price;
+		
 	}
 	
 
@@ -34,6 +32,7 @@ public class Movie extends DomainObject{
 	 */
 	public Movie() {
 		super();
+		
 	}
 
 
@@ -109,19 +108,23 @@ public class Movie extends DomainObject{
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
+	
+	/**
+	 * Lazy load (Ghost)
+	 * */
 	@Override
 	void load() {
-		// TODO Auto-generated method stub
-		super.load();
+		Movie movie = new MovieMapper().findMovieById(this.movieId);
+		if(this.length == null) {
+			this.length = movie.getLength();
+		}
+		if(this.name == null) {
+			this.name = movie.getName();
+		}
+		if(this.price == -1) {
+			this.price = movie.getPrice();
+		}
+		
 	}
-	
-	public static List<Movie> getAllMovies(){
-		MovieMapper movieMapper = new MovieMapper();
-		List<Movie> movies = new ArrayList<Movie>();
-		movies = movieMapper.findAllMovies();
-		return movies;
-	}
-	
 	
 }

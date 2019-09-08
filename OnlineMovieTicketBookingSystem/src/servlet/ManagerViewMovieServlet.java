@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Movie;
+import service.MovieService;
 
 /**
  * Servlet implementation class ManagerViewMovieServlet
@@ -32,12 +33,11 @@ public class ManagerViewMovieServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Movie> movies = new ArrayList<Movie>();
-		movies = Movie.getAllMovies();
-		for (int i = 0; i<movies.size();i++) { System.out.println(movies.get(i).getName());}
-		request.setAttribute("movies", movies);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
+		// TODO get the movieId
+		int movieId = 111;
+		MovieService movieService = new MovieService();
+		Movie movies = movieService.getMovieById(movieId);
+		System.out.println(movies.getName());
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
