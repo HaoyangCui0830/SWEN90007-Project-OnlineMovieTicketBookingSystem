@@ -2,8 +2,11 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Time;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> master
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +37,7 @@ public class ManagerAddMovieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		String movieName = request.getParameter("movieName");
 		String movieLength = request.getParameter("movieLength");
 		Time time = Time.valueOf(movieLength);
@@ -51,6 +55,12 @@ public class ManagerAddMovieServlet extends HttpServlet {
 		movies = movieService.getAllMovies();
 		request.setAttribute("movies", movies);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+=======
+		
+		Movie movie = new Movie(114, "'The Death of Superman'", Time.valueOf("01:45:00") , Float.valueOf(20));
+		MovieService movieService = new MovieService();
+		movieService.insertMovie(movie);
+>>>>>>> master
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
