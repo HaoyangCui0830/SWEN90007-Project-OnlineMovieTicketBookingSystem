@@ -9,7 +9,8 @@ public class DBConnection {
 
 	private static String DB_CONNECTION = "jdbc:postgresql://localhost:5432/OnlineMovieTicketBookingSystem";
 	private static String DB_USER = "postgres";
-	private static String DB_PASSWORD = "1q2w3e4r";
+	private static String DB_PASSWORD = "123456";
+	//private static String DB_PASSWORD = "1q2w3e4r";
 	
 	
 	
