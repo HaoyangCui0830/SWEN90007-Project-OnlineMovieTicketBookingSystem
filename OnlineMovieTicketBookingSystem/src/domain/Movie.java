@@ -5,7 +5,6 @@ import dataMapper.MovieMapper;
 
 public class Movie extends DomainObject{
 	
-	private static int movieNo= 115;
 	private int movieId = -1;
 	private String name;
 	private Time length;
@@ -18,17 +17,6 @@ public class Movie extends DomainObject{
 	 * @param length
 	 * @param price
 	 */
-	public Movie(String name, Time length, float price) {
-		super();
-		//this.movieId = movieId;
-		this.name = name;
-		this.length = length;
-		this.price = price;
-		this.movieId = movieNo+1;
-		movieNo++;
-		
-
-	}
 	
 	public Movie(int movieId, String name, Time length, float price) {
 		super();

@@ -12,10 +12,11 @@ what movie do you want to add ?<br/>
 
 
 <br/>
-<form action="ManagerAddMovieServlet" method="get">
-Movie Name:  <input type="text" name = "movieName" placeholder="movie name"><br>
-Movie Length:  <input type="length" name = "movieLength" placeholder="how many minutes"><br>
-Movie Price:  <input type="price" name = "moviePrice" placeholder="how many dollars"><br>
+<form action="ManagerAddMovieServlet" method="post">
+Movie ID:  <input type="text" name = "movieId" placeholder="movie name"><br>
+Movie Name:  <input type="text" name = "name" placeholder="movie name"><br>
+Movie Length:  <input type="text" name = "length" placeholder="how many minutes"><br>
+Movie Price:  <input type="text" name = "price" placeholder="how many dollars"><br>
 <input type="submit" value="submit">
 
 </form>>
