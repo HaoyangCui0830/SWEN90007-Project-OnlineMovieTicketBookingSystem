@@ -4,6 +4,7 @@ import domain.DomainObject;
 
 public class CinemaManagerMapper extends DataMapper{
 
+	
 	@Override
 	public boolean insert(DomainObject object) {
 		// TODO Auto-generated method stub
@@ -21,5 +22,6 @@ public class CinemaManagerMapper extends DataMapper{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 
 }
