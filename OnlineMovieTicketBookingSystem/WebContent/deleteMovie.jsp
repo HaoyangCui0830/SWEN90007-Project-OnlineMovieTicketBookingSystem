@@ -12,7 +12,7 @@ Input movie ID to delete it?<br/>
 
 
 <br/>
-<form action="ManagerDeleteMovieServlet" method="get">
+<form action="Movie!deleteMovie.do" method="post">
 Movie ID:  <input type="movieId" name = "movieId" placeholder="movie name"><br>
 <input type="submit" value="submit">
 

@@ -15,7 +15,7 @@
 	<table border ="1" width="500" align="center"> 
          <tr bgcolor="00FF7F"> 
           <th><b>Movie Name</b></th> 
-          <th><b>Moive Length</b></th> 
+          <th><b>Movie Length</b></th> 
           <th><b>Movie Price</b></th> 
           <th><b>Movie ID</b></th> 
          </tr> 

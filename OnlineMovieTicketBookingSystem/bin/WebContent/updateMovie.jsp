@@ -12,7 +12,7 @@ which movie do you want to update ?<br/>
 
 
 <br/>
-<form action="ManagerUpdateMovieServlet" method="get">
+<form action="UpdateMovie.do" method="get">
 Movie Name:  <input type="moveId" name = "movieId" placeholder="movie ID"><br>
 Movie Name:  <input type="text" name = "movieName" placeholder="movie name"><br>
 Movie Length:  <input type="length" name = "movieLength" placeholder="how many minutes"><br>
