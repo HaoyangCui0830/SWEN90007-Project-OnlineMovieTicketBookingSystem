@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<actions>
+	<action action="/add" beanClassName="entity.User" actionClassName="web.UserAction"></action>
+</actions>
