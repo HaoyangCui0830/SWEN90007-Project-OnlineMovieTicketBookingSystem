@@ -31,6 +31,13 @@ public class CinemaManager extends DomainObject{
 	
 
 	/**
+	 * 
+	 */
+	public CinemaManager() {
+		super();
+	}
+
+	/**
 	 * @return the cinemaManagerId
 	 */
 	public int getCinemaManagerId() {

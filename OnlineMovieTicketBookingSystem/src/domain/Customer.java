@@ -30,6 +30,13 @@ public class Customer extends DomainObject{
 	
 	
 	/**
+	 * 
+	 */
+	public Customer() {
+		super();
+	}
+
+	/**
 	 * @return the customerId
 	 */
 	public int getCustomerId() {

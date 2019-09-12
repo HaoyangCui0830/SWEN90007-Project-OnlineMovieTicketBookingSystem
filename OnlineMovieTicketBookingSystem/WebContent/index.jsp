@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="servlet.ManagerViewMovieServlet"%> 
-<%@page import="domain.Movie"%> 
-<%@page import="java.util.List"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,30 +6,27 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#">Online Movie Ticket Booking System</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=ManagerHome'">Login as Cinema Manager</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link"onclick="javascript:location.href='FrontServlet?command=CustomerHome'">Login as Customer</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	<img src="img/cinema_image.jpg" class="img-rounded" alt="Cinque Terre" style="width:100%; opacity: 0.6;">
 	
-	<table border ="1" width="500" align="center"> 
-         <tr bgcolor="00FF7F"> 
-          <th><b>Movie Name</b></th> 
-          <th><b>Moive Length</b></th> 
-          <th><b>Movie Price</b></th> 
-         </tr> 
-        
-        <%List<Movie> std =  
-            (List<Movie>)request.getAttribute("movies");
-        if(std!=null)
-        for(Movie s:std){%>
-            <tr> 
-                <td><%=s.getName()%></td> 
-                <td><%=s.getLength()%></td> 
-                <td><%=s.getPrice()%></td> 
-            </tr> 
-            
-        <%}
-        %>
-             
-        </table>  
-<button onclick="javascript:location.href='ManagerViewAllMoviesServlet'" type="button" class="btn btn-info" style="
-	            width: 30%;margin: 20% 35% 0 35%;height: 60px;"><i class="iconfont">&#xe601;</i>&nbsp;View all the Movies!</button>
 	<script src="js/bootstrap.js"></script>
 </body>
 </html>

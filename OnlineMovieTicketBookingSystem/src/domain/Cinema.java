@@ -1,12 +1,10 @@
 package domain;
 
-import java.util.ArrayList;
 
 public class Cinema extends DomainObject{
 	private int cinemaId = -1;
 	private String name;
 	private String address;
-	private ArrayList<Movie> movies;
 
 
 	/**
@@ -15,12 +13,12 @@ public class Cinema extends DomainObject{
 	 * @param address
 	 * @param movies
 	 */
-	public Cinema(int cinemaId, String name, String address, ArrayList<Movie> movies) {
+	public Cinema(int cinemaId, String name, String address) {
 		super();
 		this.cinemaId = cinemaId;
 		this.name = name;
 		this.address = address;
-		this.movies = movies;
+		
 	}
 
 	
@@ -91,22 +89,6 @@ public class Cinema extends DomainObject{
 		this.address = address;
 	}
 
-
-	public ArrayList<Movie> getMovies() {
-		if(this.movies == null) {
-			load();
-		}
-		return movies;
-	}
-
-
-	public void setMovies(ArrayList<Movie> movies) {
-		this.movies = movies;
-	}
-	
-	public void addMovie(Movie movie) {
-		this.movies.add(movie);
-	}
 
 
 	@Override

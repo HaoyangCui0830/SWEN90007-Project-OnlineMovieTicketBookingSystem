@@ -7,4 +7,5 @@ CREATE TABLE ThreeDMovies(
 	FOREIGN KEY (ThreeDMovie_id) REFERENCES Movies(movie_id)
 );
 
-INSERT INTO ThreeDMovies VALUES (111,true);
+
+
