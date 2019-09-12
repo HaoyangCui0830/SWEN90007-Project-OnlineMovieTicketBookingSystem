@@ -17,18 +17,17 @@ public class SessionMapper extends DataMapper{
 	@Override
 	public boolean insert(DomainObject object) {
 		Session session = (Session)object;
-		String insertSessionString = "INSERT INTO sessions (session_id, startTime, endTime, "
+		String insertSessionString = "INSERT INTO sessions (startTime, endTime, "
 				+ "MovieId, total_seats, available_seats) VALUES"
-				+ "(?,?,?,?,?,?)";
+				+ "(?,?,?,?,?)";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(insertSessionString);
-			stmt.setInt(1, session.getSessionId());
-			stmt.setTime(2, session.getTimeRange().getStartTime());
-			stmt.setTime(3, session.getTimeRange().getEndTime());
-			stmt.setInt(4, session.getMovieId());
-			stmt.setInt(5, session.getSeats());
-			stmt.setInt(6, session.getAvailableSeats());
+			stmt.setTime(1, session.getTimeRange().getStartTime());
+			stmt.setTime(2, session.getTimeRange().getEndTime());
+			stmt.setInt(3, session.getMovieId());
+			stmt.setInt(4, session.getSeats());
+			stmt.setInt(5, session.getAvailableSeats());
 			result = stmt.executeUpdate();
 		}
 		catch(SQLException e) {
@@ -67,7 +66,7 @@ public class SessionMapper extends DataMapper{
 	public boolean update(DomainObject object) throws Exception {
 		Session session = (Session)object;
 		String updateSessionString = "UPDATE sessions SET startTime = ?,"
-				+ "endTime = ?, total_seats = ?, available_seats = ? WHERE session_id = ? AND MovieId = ?";
+				+ "endTime = ?, total_seats = ?, available_seats = ? WHERE session_id = ?";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(updateSessionString);
@@ -76,7 +75,8 @@ public class SessionMapper extends DataMapper{
 			stmt.setInt(3, session.getSeats());
 			stmt.setInt(4, session.getAvailableSeats());
 			stmt.setInt(5, session.getSessionId());
-			stmt.setInt(6, session.getMovieId());
+			System.out.println(session.getSessionId());
+			//stmt.setInt(6, session.getMovieId());
 			result = stmt.executeUpdate();
 		}
 		catch(SQLException e) {

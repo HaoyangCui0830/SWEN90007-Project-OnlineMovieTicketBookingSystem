@@ -11,12 +11,6 @@
 <form action="FrontServlet?command=ManagerSubmitNewMovie" method="POST">
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">MovieId</span>
-  </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="${movie.movieId}">
-</div>
-<div class="input-group input-group-lg">
-  <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Movie Name</span>
   </div>
   <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieName" value="${movie.movieName}">

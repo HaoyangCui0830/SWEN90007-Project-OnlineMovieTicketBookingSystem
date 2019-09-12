@@ -3,10 +3,15 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import dataMapper.CinemaMapper;
+import dataMapper.CinemaMovieMapper;
 import dataMapper.MovieMapper;
 import dataMapper.SessionMapper;
+import dataMapper.ThreeDMovieMapper;
+import domain.CinemaMovie;
 import domain.Movie;
 import domain.Session;
+import domain.ThreeDMovie;
 import utils.IdentityMap;
 import utils.UnitOfWork;
 
@@ -48,11 +53,26 @@ public class MovieService {
 	public void deleteMovie(Movie movie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(movie);
+		
+		// Using Unit of Work to delete related Sessions
 		SessionMapper sessionMapper = new SessionMapper();
 		List<Session> sessions = sessionMapper.findAllSessionsByMovieId(movie.getMovieId());
 		for(Session session : sessions) {
 			UnitOfWork.getCurrent().registerDeleted(session);
 		}
+		
+		// Using Unit of Work to delete related ThreeDMovies
+		ThreeDMovieMapper threeDMovieMapper = new ThreeDMovieMapper();
+		ThreeDMovie threeDMovies = threeDMovieMapper.findThreeDMovieById(movie.getMovieId());
+		UnitOfWork.getCurrent().registerDeleted(threeDMovies);
+		
+		// Using Unit of Work to delete related Cinema Movie Relationship
+		CinemaMovieMapper cinemaMovieMapper = new CinemaMovieMapper();
+		List<CinemaMovie> cinemaMovies = cinemaMovieMapper.findCinemaMoviesByMovieId(movie.getMovieId());
+		for(CinemaMovie cinemaMovie:cinemaMovies) {
+			UnitOfWork.getCurrent().registerDeleted(cinemaMovie);
+		}
+		
 		UnitOfWork.getCurrent().commit();
 	}
 	

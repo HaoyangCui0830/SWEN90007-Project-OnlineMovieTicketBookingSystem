@@ -13,6 +13,7 @@
 
 	<table border ="1" width="500" align="center" class="table table-borderless table-dark centered"> 
 	 <tr> 
+	 
           <th><b>Movie Name</b></th> 
           <th><b>Moive Length</b></th> 
           <th><b>Movie Price</b></th> 
@@ -32,6 +33,9 @@
 	                <td><button  type="button" class="btn btn-danger"
 	                onclick="javascript:location.href='FrontServlet?command=ManagerDeleteMovie&movieId=<%=s.getMovieId()%>'"
 	                >Delete</button></td>
+	                <td><button  type="button" class="btn btn-info"
+	                onclick="javascript:location.href='FrontServlet?command=ManagerAddSession&movieId=<%=s.getMovieId()%>'"
+	                >Add Session</button></td>
 	            </tr> 
 	        <%}
 	        %>

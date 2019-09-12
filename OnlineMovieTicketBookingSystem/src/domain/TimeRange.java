@@ -2,7 +2,7 @@ package domain;
 
 import java.sql.Time;
 
-public class TimeRange {
+public class TimeRange extends DomainObject{
 
 	private Time startTime;
 	private Time endTime;

@@ -17,16 +17,15 @@ public class MovieMapper extends DataMapper{
 	@Override
 	public boolean insert(DomainObject object) {
 		Movie movie = (Movie)object;
-		String insertMovieString = "INSERT INTO Movies (movie_id, name, length, price) VALUES"
-				+ "(?,?,?,?)";
+		String insertMovieString = "INSERT INTO Movies (name, length, price) VALUES"
+				+ "(?,?,?)";
 		int result = 0;
 		//Boolean result = false;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(insertMovieString);
-			stmt.setInt(1, movie.getMovieId());
-			stmt.setString(2, movie.getName());
-			stmt.setTime(3, movie.getLength());
-			stmt.setFloat(4, movie.getPrice());
+			stmt.setString(1, movie.getName());
+			stmt.setTime(2, movie.getLength());
+			stmt.setFloat(3, movie.getPrice());
 			result = stmt.executeUpdate();
 			stmt.close();
 			DBConnection.closeConnection();

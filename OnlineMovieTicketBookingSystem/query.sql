@@ -1,1 +1,2 @@
-SELECT * FROM sessions;
+SELECT * FROM Cinema;
+

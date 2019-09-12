@@ -157,6 +157,9 @@ public class Session extends DomainObject{
 		if(this.movieId == -1) {
 			this.movieId = session.getMovieId();
 		}
+		if(this.sessionId == -1) {
+			this.sessionId = session.getSessionId();
+		}
 		if(this.seats == -1) {
 			this.seats = session.getSeats();
 		}
