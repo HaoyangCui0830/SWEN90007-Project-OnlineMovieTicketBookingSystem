@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="controller.ManagerHomeCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerHomeCommand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="189" x="773" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="controller.ManagerEditSessionCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerEditSessionCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="231" x="1002" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="controller.CustomerViewMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/CustomerViewMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="230" x="1273" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="controller.ManagerAddMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerAddMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="217" x="1543" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="controller.ManagerDeleteMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerDeleteMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="232" x="1800" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="controller.CustomerHomeCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/CustomerHomeCommand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="197" x="2072" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="controller.FrontCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/FrontCommand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="191" width="378" x="2854" y="134"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="controller.ManagerEditMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerEditMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="217" x="2309" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="controller.ManagerViewAllMoviesCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerViewAllMoviesCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="248" x="2566" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="controller.ManagerAddSessionCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerAddSessionCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="231" x="2854" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="controller.ManagerUpdateExistedSessionCommand" 
+    project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerUpdateExistedSessionCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="301" x="3125" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="controller.ManagerDeleteSessionCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerDeleteSessionCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="246" x="3466" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="controller.ManagerViewMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerViewMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="222" x="3752" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="controller.ManagerSubmitNewSessionCommand" 
+    project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerSubmitNewSessionCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="280" x="4014" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="controller.ManagerUpdateExistedMovieCommand" 
+    project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerUpdateExistedMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="287" x="4334" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="controller.CustomerViewAllMoviesCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/CustomerViewAllMoviesCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="255" x="4661" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="controller.ManagerSubmitNewMovieCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ManagerSubmitNewMovieCommand.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="266" x="4956" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="controller.ToHomePageCommand" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/ToHomePageCommand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="181" x="5262" y="365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="controller.FrontServlet" project="OnlineMovieTicketBookingSystem" 
+    file="/OnlineMovieTicketBookingSystem/src/controller/FrontServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2388" y="156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="javax.servlet.http.HttpServlet" project="OnlineMovieTicketBookingSystem" 
+    file="/Servers/apache-tomcat-9.0.24/lib/servlet-api.jar" binary="true" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2378" y="-8"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <dependency id="36">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
