@@ -14,6 +14,11 @@ import utils.IdentityMap;
 public class CinemaManagerMapper extends DataMapper{
 
 	
+	
+	/**
+	 * @param DomainObject
+	 * Insert new cinema manager into cinema manager DB
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		CinemaManager cinemaManager = (CinemaManager)object;
@@ -42,6 +47,12 @@ public class CinemaManagerMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Delete new cinema manager from cinema manager DB
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		CinemaManager cinemaManager = (CinemaManager)object;
@@ -63,6 +74,12 @@ public class CinemaManagerMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Update new cinema manager onto cinema manager DB
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		CinemaManager cinemaManager = (CinemaManager)object;
@@ -87,6 +104,10 @@ public class CinemaManagerMapper extends DataMapper{
 		}
 	}
 	
+	
+	/**
+	 * Find all cinema manager info from cinema manager DB
+	 * */
 	public List<CinemaManager> findAllcinemaManagers(){
 		String findAllcinemaManagerString = "SELECT * FROM Cinema_Manager";
 		List<CinemaManager> result = new ArrayList<CinemaManager>();
@@ -109,6 +130,11 @@ public class CinemaManagerMapper extends DataMapper{
 		return result;
 	}
 	
+	
+	/**
+	 * @param cinema managerId
+	 * find one specific cinema manager from cinema manager DB
+	 * */
 	public CinemaManager findcinemaManagerById(int cinemaManagerId) {
 		String findcinemaManagerByIdString = "SELECT * FROM cinemaManager WHERE cinemaManager_id = ?";
 		CinemaManager result = new CinemaManager();

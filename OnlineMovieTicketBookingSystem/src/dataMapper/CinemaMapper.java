@@ -13,6 +13,12 @@ import utils.IdentityMap;
 
 public class CinemaMapper extends DataMapper{
 
+	
+	/**
+	 * @param DomainObject
+	 * Insert new cinema into cinema DB
+	 * Currently not used as we don't manager to add new CINEMA onto system
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		Cinema cinema = (Cinema)object;
@@ -37,6 +43,12 @@ public class CinemaMapper extends DataMapper{
 		}
 	}
 
+	
+	/**
+	 * @param DomainObject
+	 * delete cinema from cinema DB
+	 * Currently not used as we don't manager to delete new CINEMA from system
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		Cinema cinema = (Cinema)object;
@@ -58,6 +70,12 @@ public class CinemaMapper extends DataMapper{
 		}
 	}
 
+	
+	/**
+	 * @param DomainObject
+	 * Update cinema info onto cinema DB
+	 * Currently not used as we don't manager to edit CINEMA basic info onto system
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		Cinema cinema = (Cinema)object;
@@ -82,6 +100,9 @@ public class CinemaMapper extends DataMapper{
 		}
 	}
 	
+	/**
+	 * Find all cinema info from cinema DB
+	 * */
 	public List<Cinema> findAllCinemas(){
 		String findAllCinemaString = "SELECT * FROM Cinema";
 		List<Cinema> result = new ArrayList<Cinema>();

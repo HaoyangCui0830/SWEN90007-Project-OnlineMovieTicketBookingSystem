@@ -14,6 +14,11 @@ import utils.IdentityMap;
 
 public class SessionMapper extends DataMapper{
 
+	
+	/**
+	 * @param DomainObject
+	 * Insert new Session into Session DB
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		Session session = (Session)object;
@@ -41,6 +46,12 @@ public class SessionMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Delete new Session from Session DB
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		Session session = (Session)object;
@@ -62,6 +73,12 @@ public class SessionMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Update new Session into Session DB
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		Session session = (Session)object;
@@ -90,6 +107,9 @@ public class SessionMapper extends DataMapper{
 		}
 	}
 	
+	/**
+	 * Find all Session info from Session DB
+	 * */
 	public List<Session> findAllSessionsByMovieId(int MovieId){
 		String findAllSessionString = "SELECT * FROM sessions WHERE MovieId = ?";
 		List<Session> result = new ArrayList<Session>();
@@ -116,6 +136,11 @@ public class SessionMapper extends DataMapper{
 		return result;
 	}
 	
+	
+	/**
+	 * @param SessionId
+	 * find one specific Session from Session DB
+	 * */
 	public Session findSessionById(int sessionId) {
 		String findSessionByIdString = "SELECT * FROM sessions WHERE session_id = ?";
 		Session result = new Session();

@@ -1,6 +1,5 @@
 package domain;
 
-
 public class Cinema extends DomainObject{
 	private int cinemaId = -1;
 	private String name;
@@ -93,8 +92,7 @@ public class Cinema extends DomainObject{
 
 	@Override
 	void load() {
-		// TODO Auto-generated method stub
-		super.load();
+		 
 	}
 	
 	

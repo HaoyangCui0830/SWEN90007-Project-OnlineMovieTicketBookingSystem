@@ -11,7 +11,12 @@ import utils.IdentityMap;
 
 public class ThreeDMovieMapper extends DataMapper{
 
-	@Override
+	
+	/**
+	 * @param DomainObject
+	 * Insert new ThreeDMovie into ThreeDMovie DB
+	 * */
+	  @Override
 	public boolean insert(DomainObject object) {
 		ThreeDMovie threeDmovie = (ThreeDMovie)object;
 		String insertthreeDMovieString = "INSERT INTO ThreeDMovies (ThreeDMovie_id, has_free_glasses) VALUES"
@@ -39,6 +44,11 @@ public class ThreeDMovieMapper extends DataMapper{
 		}
 	}
 
+	
+	/**
+	 * @param DomainObject
+	 * Delete new ThreeDMovie from ThreeDMovie DB
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		ThreeDMovie threeDmovie = (ThreeDMovie)object;
@@ -60,6 +70,11 @@ public class ThreeDMovieMapper extends DataMapper{
 		}
 	}
 
+	
+	/**
+	 * @param DomainObject
+	 * Update new ThreeDMovie into ThreeDMovie DB
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		ThreeDMovie threeDmovie = (ThreeDMovie)object;
@@ -84,6 +99,11 @@ public class ThreeDMovieMapper extends DataMapper{
 		}
 	}
 	
+	
+	/**
+	 * @param movieId
+	 * find one specific ThreeDMovie from ThreeDMovie DB
+	 * */
 	public ThreeDMovie findThreeDMovieById(int movieId) {
 		String findThreeDMovieByIdString = "SELECT * FROM ThreeDMovies WHERE ThreeDMovie_id = ?";
 		ThreeDMovie result = new ThreeDMovie();

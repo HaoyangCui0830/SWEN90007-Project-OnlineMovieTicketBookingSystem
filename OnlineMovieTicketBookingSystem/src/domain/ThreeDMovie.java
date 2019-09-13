@@ -2,6 +2,8 @@ package domain;
 
 import java.sql.Time;
 
+import dataMapper.ThreeDMovieMapper;
+
 public class ThreeDMovie extends Movie{
 
 	private Boolean hasFreeGlasses;
@@ -42,6 +44,9 @@ public class ThreeDMovie extends Movie{
 	 * @return the hasFreeGlasses
 	 */
 	public Boolean getHasFreeGlasses() {
+		if(this.hasFreeGlasses == null) {
+			load();
+		}
 		return hasFreeGlasses;
 	}
 
@@ -52,6 +57,12 @@ public class ThreeDMovie extends Movie{
 		this.hasFreeGlasses = hasFreeGlasses;
 	}
 	
-	
+	@Override
+	void load() {
+		ThreeDMovie threeDMovie = new ThreeDMovieMapper().findThreeDMovieById(this.getMovieId());
+		if(this.hasFreeGlasses == null ) {
+			this.hasFreeGlasses = threeDMovie.hasFreeGlasses;
+		}
+	}
 	
 }
