@@ -1,5 +1,7 @@
 package domain;
 
+import dataMapper.CinemaManagerMapper;
+
 public class CinemaManager extends DomainObject{
 
 	private int cinemaManagerId = -1;
@@ -89,9 +91,19 @@ public class CinemaManager extends DomainObject{
 	}
 
 	@Override
+	/**
+	 * Lazy load (Ghost)
+	 * */
 	void load() {
 		// TODO Auto-generated method stub
 		super.load();
+		CinemaManager cinemaManager = new CinemaManagerMapper().findcinemaManagerById(this.cinemaManagerId);
+		if(this.firstNameString == null) {
+			this.firstNameString = cinemaManager.firstNameString;
+		}
+		if(this.lastNameString == null ) {
+			this.lastNameString = cinemaManager.lastNameString;
+		}
 	}
 	
 	

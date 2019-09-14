@@ -50,14 +50,28 @@ public class ManagerUpdateExistedMovieCommand extends FrontCommand{
 		
 		CinemaMovie cinemaMovie = new CinemaMovie();
 		cinemaMovie.setMovieId(Integer.parseInt(movieId));
+		CinemaMovieMapper cinemaMovieMapper = new CinemaMovieMapper();
+//		List<CinemaMovie> cinemaMovies = new ArrayList<CinemaMovie>();
+//		cinemaMovies = cinemaMovieMapper.findCinemaMoviesByMovieId(Integer.parseInt(movieId));
 		if(Boolean.parseBoolean(showInMelbourne)) {
+//			Boolean existed = false;
+//			for(CinemaMovie cm: cinemaMovies) {
+//				if (cm.getCinemaId() == 1) {
+//					existed = true;
+//					try {
+//						cinemaMovieMapper.update(cm);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
 			cinemaMovie.setCinemaId(1);
-			CinemaMovieMapper cinemaMovieMapper = new CinemaMovieMapper();
 			cinemaMovieMapper.insert(cinemaMovie);
 		}
 		if(Boolean.parseBoolean(showInSydney)) {
 			cinemaMovie.setCinemaId(2);
-			CinemaMovieMapper cinemaMovieMapper = new CinemaMovieMapper();
+			
 			cinemaMovieMapper.insert(cinemaMovie);
 		}
 		

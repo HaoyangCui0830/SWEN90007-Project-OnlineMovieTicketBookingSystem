@@ -2,6 +2,10 @@ package domain;
 
 import java.sql.Time;
 
+/**
+ * As the class has only one attribute, it could either load all
+ * attributes at once, so no needs for lazy load.
+ * */
 public class ThreeDMovie extends Movie{
 
 	private Boolean hasFreeGlasses;
@@ -38,6 +42,7 @@ public class ThreeDMovie extends Movie{
 		super();
 	}
 
+	
 	/**
 	 * @return the hasFreeGlasses
 	 */
@@ -51,7 +56,6 @@ public class ThreeDMovie extends Movie{
 	public void setHasFreeGlasses(Boolean hasFreeGlasses) {
 		this.hasFreeGlasses = hasFreeGlasses;
 	}
-	
 	
 	
 }

@@ -23,12 +23,20 @@ public class MovieService {
 		movieMapper = new MovieMapper();
 	}
 	
+	/**
+	 * collect all movies' info from DB
+	 * */
 	public List<Movie> getAllMovies(){
 		List<Movie> movies = new ArrayList<Movie>();
 		movies = movieMapper.findAllMovies();
 		return movies;
 	}
 	
+	
+	/**
+	 * collect one movie's info from DB based on movieId
+	 * @param movieId
+	 * */
 	public Movie getMovieById(int movieId) {
 		Movie movie = new Movie();
 		movie.setMovieId(movieId);
@@ -43,13 +51,21 @@ public class MovieService {
 		}
 	}
 	
-	
+	/**
+	 * insert movie info into DB
+	 * @param movie
+	 * */
 	public void insertMovie(Movie movie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(movie);
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * delete one movie and all related sessions, 3Dmovie iinfo and cinemaMovie relationship
+	 * from DB
+	 * @param movie
+	 * */
 	public void deleteMovie(Movie movie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(movie);
@@ -57,25 +73,35 @@ public class MovieService {
 		// Using Unit of Work to delete related Sessions
 		SessionMapper sessionMapper = new SessionMapper();
 		List<Session> sessions = sessionMapper.findAllSessionsByMovieId(movie.getMovieId());
-		for(Session session : sessions) {
-			UnitOfWork.getCurrent().registerDeleted(session);
+		if(sessions!=null) {
+			for(Session session : sessions) {
+				UnitOfWork.getCurrent().registerDeleted(session);
+			}
 		}
 		
 		// Using Unit of Work to delete related ThreeDMovies
 		ThreeDMovieMapper threeDMovieMapper = new ThreeDMovieMapper();
 		ThreeDMovie threeDMovies = threeDMovieMapper.findThreeDMovieById(movie.getMovieId());
-		UnitOfWork.getCurrent().registerDeleted(threeDMovies);
+		if(threeDMovies.getHasFreeGlasses()!=null) {
+			UnitOfWork.getCurrent().registerDeleted(threeDMovies);
+		}
 		
 		// Using Unit of Work to delete related Cinema Movie Relationship
 		CinemaMovieMapper cinemaMovieMapper = new CinemaMovieMapper();
 		List<CinemaMovie> cinemaMovies = cinemaMovieMapper.findCinemaMoviesByMovieId(movie.getMovieId());
-		for(CinemaMovie cinemaMovie:cinemaMovies) {
-			UnitOfWork.getCurrent().registerDeleted(cinemaMovie);
+		if(cinemaMovies != null) {
+			for(CinemaMovie cinemaMovie:cinemaMovies) {
+				UnitOfWork.getCurrent().registerDeleted(cinemaMovie);
+			}
 		}
 		
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * update movie info into DB
+	 * @param movie
+	 * */
 	public void updateMovie(Movie movie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(movie);

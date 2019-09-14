@@ -13,6 +13,12 @@ import utils.IdentityMap;
 
 public class CinemaMovieMapper extends DataMapper{
 
+	
+	/**
+	 * @param DomainObject
+	 * insert new cinema-movie relationship into cinema_movie DB
+	 * Used by MovieService when the manager wants to add one specific onto one cinema
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		CinemaMovie cinemaMovie = (CinemaMovie)object;
@@ -41,6 +47,11 @@ public class CinemaMovieMapper extends DataMapper{
 		}
 	}
 
+	/**
+	 * @param DomainObject
+	 * delete cinema-movie relationship from cinema_movie DB
+	 * used by MovieService when one specific won't on showing any more
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		CinemaMovie cinemaMovie = (CinemaMovie)object;
@@ -67,9 +78,13 @@ public class CinemaMovieMapper extends DataMapper{
 	// replaced by inserting and deleting
 	public boolean update(DomainObject object) throws Exception {
 		return false;
-		
 	}
 	
+	
+	/**
+	 * @param DomainObject
+	 * find all cinemas which show one specific movie
+	 * */
 	public List<CinemaMovie> findCinemaMoviesByMovieId(int movieId){
 		String findCinemaMoviesByMovieIdString = "SELECT * FROM Cinema_Movie WHERE movieId = ?";
 		List<CinemaMovie> result = new ArrayList<CinemaMovie>();

@@ -14,6 +14,11 @@ import utils.IdentityMap;
 
 public class MovieMapper extends DataMapper{
 
+	
+	/**
+	 * @param DomainObject
+	 * Insert new Movie into Movie DB
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		Movie movie = (Movie)object;
@@ -43,6 +48,12 @@ public class MovieMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Delete new Movie from Movie DB
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		Movie movie = (Movie)object;
@@ -64,6 +75,12 @@ public class MovieMapper extends DataMapper{
 		}
 	}
 
+	
+	
+	/**
+	 * @param DomainObject
+	 * Update new Movie into Movie DB
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		Movie movie = (Movie)object;
@@ -90,6 +107,9 @@ public class MovieMapper extends DataMapper{
 		}
 	}
 	
+	/**
+	 * Find all Movie info from Movie DB
+	 * */
 	public List<Movie> findAllMovies(){
 		String findAllMovieString = "SELECT * FROM Movies";
 		List<Movie> result = new ArrayList<Movie>();
@@ -113,6 +133,11 @@ public class MovieMapper extends DataMapper{
 		return result;
 	}
 	
+	
+	/**
+	 * @param MovieId
+	 * find one specific Movie from Movie DB using movieId
+	 * */
 	public Movie findMovieById(int movieId) {
 		String findMovieByIdString = "SELECT * FROM Movies WHERE movie_id = ?";
 		Movie result = new Movie();
@@ -137,6 +162,11 @@ public class MovieMapper extends DataMapper{
 		return result;
 	}
 	
+	
+	/**
+	 * @param MovieId
+	 * find all onshowing cinema of one specific movie based on movieId
+	 * */
 	public List<Cinema> findCinemaByMovieId(int movieId) {
 		String findCinemaByMovieIdString = "SELECT cinema_id, name, ADDRESS FROM Cinema INNER JOIN Cinema_Movie ON "
 				+ "Cinema.cinema_id = Cinema_Movie.cinemaID WHERE movieId = ?";

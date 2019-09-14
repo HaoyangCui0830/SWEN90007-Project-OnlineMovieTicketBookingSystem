@@ -1,5 +1,7 @@
 package domain;
 
+import dataMapper.CustomerMapper;
+
 public class Customer extends DomainObject{
 
 	private int customerId = -1;
@@ -89,8 +91,13 @@ public class Customer extends DomainObject{
 
 	@Override
 	void load() {
-		// TODO Auto-generated method stub
-		super.load();
+		Customer customer = new CustomerMapper().findCustomerById(this.customerId);
+		if(this.firstNameString == null) {
+			this.firstNameString = customer.firstNameString;
+		}
+		if(this.lastNameString == null ) {
+			this.lastNameString = customer.lastNameString;
+		}
 	}
 	
 	

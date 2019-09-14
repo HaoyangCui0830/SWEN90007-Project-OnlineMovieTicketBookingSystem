@@ -13,13 +13,17 @@ import utils.IdentityMap;
 
 public class CustomerMapper extends DataMapper{
 
+	
+	/**
+	 * @param DomainObject
+	 * Insert new customer into customer DB
+	 * */
 	@Override
 	public boolean insert(DomainObject object) {
 		Customer customer = (Customer)object;
 		String insertCustomerString = "INSERT INTO Customer (firstname, lastname) VALUES"
 				+ "(?,?)";
 		int result = 0;
-		//Boolean result = false;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(insertCustomerString);
 			stmt.setString(1, customer.getFirstNameString());
@@ -41,6 +45,10 @@ public class CustomerMapper extends DataMapper{
 		}
 	}
 
+	/**
+	 * @param DomainObject
+	 * delete customer from customer DB
+	 * */
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		Customer customer = (Customer)object;
@@ -62,6 +70,10 @@ public class CustomerMapper extends DataMapper{
 		}
 	}
 
+	/**
+	 * @param DomainObject
+	 * Update customer info onto customer DB
+	 * */
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		Customer customer = (Customer)object;
@@ -86,6 +98,10 @@ public class CustomerMapper extends DataMapper{
 		}
 	}
 	
+	
+	/**
+	 * Find all customer info from customer DB
+	 * */
 	public List<Customer> findAllCustomers(){
 		String findAllCustomerString = "SELECT * FROM Customer";
 		List<Customer> result = new ArrayList<Customer>();
@@ -108,6 +124,11 @@ public class CustomerMapper extends DataMapper{
 		return result;
 	}
 	
+	
+	/**
+	 * @param customerId
+	 * find one specific customer from customer DB
+	 * */
 	public Customer findCustomerById(int customerId) {
 		String findCustomerByIdString = "SELECT * FROM Customer WHERE customer_id = ?";
 		Customer result = new Customer();

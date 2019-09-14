@@ -1,6 +1,10 @@
 package domain;
 
-
+/**
+ * As according to our case, cinema managers have no right to edit Cinema
+ * attributes, so the class could only load all attributes at once, so 
+ * lazy load (ghost) is not applied here
+ * */
 public class Cinema extends DomainObject{
 	private int cinemaId = -1;
 	private String name;
@@ -93,8 +97,7 @@ public class Cinema extends DomainObject{
 
 	@Override
 	void load() {
-		// TODO Auto-generated method stub
-		super.load();
+		 
 	}
 	
 	
