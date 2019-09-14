@@ -9,44 +9,45 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<%Session session1 =  (Session)request.getAttribute("session");
+<%domain.Session session1 =  (domain.Session)request.getAttribute("sessioninfo");
+System.out.println("test in frontend" + session1.getMovieId());
 	        if(session1!=null){%>
 <form action="FrontServlet?command=ManagerUpdateExistedSession" method="POST">
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Movie Id</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="${session1.getMovieId()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="<%=session1.getMovieId()%>">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Session Id</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionId" value="${session1.getSessionId()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionId" value="<%=session1.getSessionId()%>">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Start Time</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionStartTime" value="${session1.getTimeRange().getStartTime()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionStartTime" value="<%=session1.getTimeRange().getStartTime()%>">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">End Time</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionEndTime" value="${session1.getTimeRange().getEndTime()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionEndTime" value="<%=session1.getTimeRange().getEndTime()%>">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Total Seats</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionTotalSeats" value="${session1.getSeats()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionTotalSeats" value="<%=session1.getSeats()%>">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Available Seats</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionAvailableSeats" value="${session1.getAvailableSeats()}">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionAvailableSeats" value="<%=session1.getAvailableSeats()%>">
 </div>
 
 <div class="text-center">

@@ -18,6 +18,11 @@ public class ThreeDMovieService {
 		this.threeDMovieMapper = new ThreeDMovieMapper();
 	}
 	
+	
+	/**
+	 * Find ThreeDMovie Info based on movieid
+	 * This function will search for identity map firstly
+	 * */
 	public ThreeDMovie getThreeDMovieById(int threeDMovieId) {
 		ThreeDMovie threeDMovie = new ThreeDMovie();
 		threeDMovie.setMovieId(threeDMovieId);
@@ -32,18 +37,27 @@ public class ThreeDMovieService {
 		}
 	}
 	
+	/**
+	 * Insert ThreeDMovie object info into DB
+	 * */
 	public void insertThreeDMovie(ThreeDMovie threeDmovie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(threeDmovie);
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * delete ThreeDMovie info from DB
+	 * */
 	public void deleteThreeDMovie(ThreeDMovie threeDmovie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(threeDmovie);
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * Update ThreeDMovie object info into DB
+	 * */
 	public void updateThreeDMovie(ThreeDMovie threeDmovie) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(threeDmovie);

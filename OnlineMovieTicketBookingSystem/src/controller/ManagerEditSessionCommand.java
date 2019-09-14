@@ -15,7 +15,7 @@ public class ManagerEditSessionCommand extends FrontCommand{
 		SessionService SessionService = new SessionService();
 		session = SessionService.getSessionBySessionId(sessionId);
 		System.out.println("session test"+session.getTimeRange().getStartTime());
-		request.setAttribute("session", session);
+		request.setAttribute("sessioninfo", session);
 		forward("/jsp/ManagerPages/ManagerEditSession.jsp");
 	}
 }

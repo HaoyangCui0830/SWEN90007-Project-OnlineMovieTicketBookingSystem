@@ -16,12 +16,19 @@ public class CustomerService {
 		this.customerMapper = new CustomerMapper();
 	}
 	
+	/**
+	 * Collect all customer info from DB
+	 * */
 	public List<Customer> getAllCustomers(){
 		List<Customer> customers = new ArrayList<Customer>();
 		customers = this.customerMapper.findAllCustomers();
 		return customers;
 	}
 	
+	/**
+	 * Collect one customer by id
+	 * @param customerId
+	 * */
 	public Customer findCustomerById(int customerId) {
 		Customer customer = new Customer();
 		customer.setCustomerId(customerId);
@@ -36,18 +43,30 @@ public class CustomerService {
 		}
 	}
 	
+	/**
+	 * insert customer info into DB
+	 * @param customer
+	 * */
 	public void insertCustomer(Customer customer) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(customer);
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * delete customer from DB
+	 * @param customer
+	 * */
 	public void deleteCustomer(Customer customer) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(customer);
 		UnitOfWork.getCurrent().commit();
 	}
 	
+	/**
+	 * update customer info into DB
+	 * @param customer
+	 * */
 	public void updateCustomer(Customer customer) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(customer);

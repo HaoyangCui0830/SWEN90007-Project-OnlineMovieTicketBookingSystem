@@ -2,8 +2,10 @@ package domain;
 
 import java.sql.Time;
 
-import dataMapper.ThreeDMovieMapper;
-
+/**
+ * As the class has only one attribute, it could either load all
+ * attributes at once, so no needs for lazy load.
+ * */
 public class ThreeDMovie extends Movie{
 
 	private Boolean hasFreeGlasses;
@@ -44,9 +46,6 @@ public class ThreeDMovie extends Movie{
 	 * @return the hasFreeGlasses
 	 */
 	public Boolean getHasFreeGlasses() {
-		if(this.hasFreeGlasses == null) {
-			load();
-		}
 		return hasFreeGlasses;
 	}
 
@@ -57,12 +56,5 @@ public class ThreeDMovie extends Movie{
 		this.hasFreeGlasses = hasFreeGlasses;
 	}
 	
-	@Override
-	void load() {
-		ThreeDMovie threeDMovie = new ThreeDMovieMapper().findThreeDMovieById(this.getMovieId());
-		if(this.hasFreeGlasses == null ) {
-			this.hasFreeGlasses = threeDMovie.hasFreeGlasses;
-		}
-	}
 	
 }

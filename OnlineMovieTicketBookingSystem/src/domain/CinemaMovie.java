@@ -1,5 +1,10 @@
 package domain;
 
+/**
+ * As this class represents an association table, it could only be
+ * create or delete, which means it could only load all attributes
+ * at once. So lazy load(ghost) is not applied here.
+ * */
 public class CinemaMovie extends DomainObject{
 
 	private int movieId;
