@@ -42,6 +42,7 @@ public class ThreeDMovie extends Movie{
 		super();
 	}
 
+	
 	/**
 	 * @return the hasFreeGlasses
 	 */
