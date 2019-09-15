@@ -68,7 +68,7 @@ public class MovieService {
 	 * */
 	public void deleteMovie(Movie movie) {
 		UnitOfWork.newCurrent();
-		UnitOfWork.getCurrent().registerDeleted(movie);
+		
 		
 		// Using Unit of Work to delete related Sessions
 		SessionMapper sessionMapper = new SessionMapper();
@@ -95,6 +95,7 @@ public class MovieService {
 			}
 		}
 		
+		UnitOfWork.getCurrent().registerDeleted(movie);
 		UnitOfWork.getCurrent().commit();
 	}
 	
