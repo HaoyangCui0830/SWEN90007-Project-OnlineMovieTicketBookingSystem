@@ -8,3 +8,5 @@ The User interface jsp file is in OnlineMovieTicketBookingSystetm -> WebContent 
 One Submission 2 Documentation copy is placed in the Documentations folder.
 
 Any other issues or confusion, feel free to contact me: haoyangc@student.unimelb.edu.au
+
+# Submission 1 documentation is also in the Documentation folder, which could be used for checking if there is anything confused about our project proposal.
