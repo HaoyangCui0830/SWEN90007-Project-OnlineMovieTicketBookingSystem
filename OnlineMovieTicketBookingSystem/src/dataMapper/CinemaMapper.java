@@ -8,6 +8,7 @@ import java.util.List;
 
 import domain.Cinema;
 import domain.DomainObject;
+import domain.Movie;
 import utils.DBConnection;
 import utils.IdentityMap;
 
@@ -125,4 +126,39 @@ public class CinemaMapper extends DataMapper{
 		return result;
 	}
 
+	public Cinema findCinemaById(int cinemaId) {
+		String findCinemaById = "SELECT * FROM Cinema WHERE cinema_id = ?";
+		Cinema result = new Cinema();
+		try {
+			PreparedStatement stmt = DBConnection.prepare(findCinemaById);
+			stmt.setInt(1, cinemaId);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Cinema cinema = new Cinema();
+				IdentityMap<Cinema> identityMap = IdentityMap.getInstance(cinema);
+				cinema.setCinemaId(rs.getInt(1));
+				cinema.setName(rs.getString(2));
+				cinema.setAddress(rs.getString(3));
+//				movie.setMovieId(rs.getInt(1));
+//				movie.setName(rs.getString(2));
+//				movie.setLength(rs.getTime(3));
+//				movie.setPrice(rs.getFloat(4));
+				identityMap.put(cinema.getCinemaId(), cinema);
+				result = cinema;
+			}
+		}
+		catch(SQLException e) {
+			System.out.println(this.getClass().toString()+" view by cinema id Problem");
+		}
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
