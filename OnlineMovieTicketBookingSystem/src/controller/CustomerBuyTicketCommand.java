@@ -14,7 +14,6 @@ public class CustomerBuyTicketCommand extends FrontCommand{
 		int sessionId = Integer.parseInt(request.getParameter("sessionId"));
 		SessionService SessionService = new SessionService();
 		session = SessionService.getSessionBySessionId(sessionId);
-		System.out.println("session test"+session.getTimeRange().getStartTime());
 		request.setAttribute("sessioninfo", session);
 		forward("/jsp/CustomerPages/CustomerBuyTicket.jsp");
 	}

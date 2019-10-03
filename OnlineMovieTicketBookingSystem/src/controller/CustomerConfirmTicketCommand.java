@@ -46,11 +46,16 @@ public class CustomerConfirmTicketCommand extends FrontCommand{
 //			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 			return;
 		}	
-		
+//		System.out.println("11111");
 		Ticket ticket = new Ticket(customerName, cinema2, movie, session2, ticketNo);
-		TicketService tService = new TicketService();
-		tService.insertTicket(ticket);
-		forward("/jsp/CustomerPages/CustomerHomePage.jsp");
+		request.setAttribute("ticket", ticket);
+		request.getRequestDispatcher("/jsp/CustomerPages/CustomerPay.jsp").forward(request, response);
+//		forward("/jsp/CustomerPay.jsp");
+		
+//		Ticket ticket = new Ticket(customerName, cinema2, movie, session2, ticketNo);
+//		TicketService tService = new TicketService();
+//		tService.insertTicket(ticket);
+//		forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 	}
 	
 }

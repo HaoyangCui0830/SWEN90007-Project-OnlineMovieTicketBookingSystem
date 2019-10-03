@@ -70,7 +70,7 @@ System.out.println("test in frontend" + session1.getMovieId());
 </div>
 
 <div class="text-center">
-	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='FrontServlet?command=ManagerHome'" >Back</button>
+	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='FrontServlet?command=CustomerHome'" >Back</button>
 	<input type="submit" value="Confirm and buy" class="btn btn-success centered"></input>
 	</div>
 </form>

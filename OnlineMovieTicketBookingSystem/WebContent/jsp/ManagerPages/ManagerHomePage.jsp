@@ -20,6 +20,9 @@
 	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=ManagerAddMovie'">Add Movie</a>
 	      </li>
 	      <li class="nav-item">
+	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=ManagerViewAllTickets'">View All tickets</a>
+	      </li>
+	      <li class="nav-item">
 	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=CustomerHome'">Login as Customer</a>
 	      </li>
 	    </ul>

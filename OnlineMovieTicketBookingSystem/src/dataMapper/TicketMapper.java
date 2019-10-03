@@ -72,7 +72,7 @@ public class TicketMapper extends DataMapper{
 	public boolean update(DomainObject object) throws Exception {
 		Ticket ticket = (Ticket)object;
 		String updateTicketString = "UPDATE ticket SET name = ?,"
-				+ "movie_id = ?, session_id = ?, cinema_id=?, seatnumber=?,WHERE ticket_id = ?";
+				+ "movie_id = ?, session_id = ?, cinema_id=?, seatnumber=? WHERE ticket_id = ?";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(updateTicketString);
@@ -86,6 +86,7 @@ public class TicketMapper extends DataMapper{
 			
 		}
 		catch(SQLException e) {
+			//e.printStackTrace();
 			System.out.println(this.getClass().toString()+" update ticket Problem");
 		}
 		if(result == 0) {
@@ -180,6 +181,7 @@ public class TicketMapper extends DataMapper{
 				ticket.setSession(session);
 				Cinema cinema = new CinemaMapper().findCinemaById(rs.getInt(5));
 				ticket.setCinema(cinema);
+				ticket.setSeatNumber(rs.getInt(6));
 //				identityMap.put(ticket.getTicket_id(), ticket);
 				result = ticket;
 				
