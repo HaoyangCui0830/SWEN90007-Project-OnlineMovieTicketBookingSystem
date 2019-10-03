@@ -108,8 +108,6 @@ public class Ticket extends DomainObject{
 
 	@Override
 	public String toString() {
-		
-		
 		return "Ticket [customerName=" + customerName
 				+ ", movie=" + movie.getName() + ", session="
 				+ session.getTimeRange().getStartTime()+"------"+session.getTimeRange().getEndTime() + ", cinema=" + cinema.getName() + ", seatNumber=" + seatNumber + "]";

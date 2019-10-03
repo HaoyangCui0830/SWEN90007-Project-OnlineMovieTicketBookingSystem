@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import dataMapper.CinemaMapper;
 import dataMapper.MovieMapper;
 import domain.Cinema;
 
@@ -19,4 +20,9 @@ public class CinemaService {
 		return cinemas;
 	}
 	
+	public Cinema getCinemaById(int cinemaId) {
+		CinemaMapper cinemaMapper = new CinemaMapper();
+		Cinema cinema = cinemaMapper.findCinemaById(cinemaId);
+		return cinema;
+	}
 }

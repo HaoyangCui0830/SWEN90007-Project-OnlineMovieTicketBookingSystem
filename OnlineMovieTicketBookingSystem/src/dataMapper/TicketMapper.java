@@ -19,8 +19,8 @@ public class TicketMapper extends DataMapper{
 	@Override
 	public boolean insert(DomainObject object) {
 		Ticket ticket = (Ticket)object;
-		String insertTicketString = "INSERT INTO ticket (name, movie_id, session_id)"
-				+ "VALUES(?,?,?)";
+		String insertTicketString = "INSERT INTO ticket (name, movie_id, session_id, cinema_id, seatnumber)"
+				+ "VALUES(?,?,?,?,?)";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(insertTicketString);
@@ -28,6 +28,7 @@ public class TicketMapper extends DataMapper{
 			stmt.setInt(2, ticket.getMovie().getMovieId());
 			stmt.setInt(3, ticket.getSession().getSessionId());
 			stmt.setInt(4, ticket.getCinema().getCinemaId());
+			stmt.setInt(5, ticket.getSeatNumber());
 			result = stmt.executeUpdate();
 			stmt.close();
 			DBConnection.closeConnection();
@@ -35,6 +36,7 @@ public class TicketMapper extends DataMapper{
 			
 		}
 		catch(SQLException e) {
+			e.printStackTrace();
 			System.out.println(this.getClass().toString()+" insert ticket Problem");
 		}
 		if(result == 0) {

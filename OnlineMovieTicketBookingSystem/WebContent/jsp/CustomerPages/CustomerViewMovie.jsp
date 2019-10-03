@@ -44,6 +44,8 @@
 		                <td><%=s.getTimeRange().getEndTime()%></td> 
 		                <td><%=s.getSeats()%></td> 
 		                <td><%=s.getAvailableSeats()%></td>
+		                <td><button  type="button" class="btn btn-warning"
+		                onclick="javascript:location.href='FrontServlet?command=CustomerBuyTicket&MovieId=<%=movie.getMovieId() %>&sessionId=<%=s.getSessionId()%>'">Buy Tickets</button></td>
 		            </tr> 
 		        <%}
 		        %>

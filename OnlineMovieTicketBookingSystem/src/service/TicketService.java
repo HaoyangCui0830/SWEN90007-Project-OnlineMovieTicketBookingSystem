@@ -1,11 +1,8 @@
 package service;
-
-import java.security.Identity;
-import java.util.ArrayList;
 import java.util.List;
 
 import dataMapper.TicketMapper;
-import domain.Movie;
+
 import domain.Ticket;
 import utils.IdentityMap;
 import utils.UnitOfWork;
