@@ -43,9 +43,6 @@ public class CinemaManager extends DomainObject{
 	 * @return the cinemaManagerId
 	 */
 	public int getCinemaManagerId() {
-		if(this.cinemaManagerId == -1) {
-			load();
-		}
 		return cinemaManagerId;
 	}
 
@@ -104,6 +101,11 @@ public class CinemaManager extends DomainObject{
 		if(this.lastNameString == null ) {
 			this.lastNameString = cinemaManager.lastNameString;
 		}
+	}
+
+	@Override
+	public int getId() {
+		return this.cinemaManagerId;
 	}
 	
 	

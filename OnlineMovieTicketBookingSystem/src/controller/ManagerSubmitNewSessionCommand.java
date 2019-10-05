@@ -30,7 +30,13 @@ public class ManagerSubmitNewSessionCommand extends FrontCommand{
 		
 		SessionService SessionService = new SessionService();
 		System.out.println(Session.getTimeRange().getEndTime());
-		SessionService.insertSession(Session);
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		Boolean result = SessionService.insertSession(Session,request.getSession().getId());
+		if(result == true) {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
+		
 	}
 }

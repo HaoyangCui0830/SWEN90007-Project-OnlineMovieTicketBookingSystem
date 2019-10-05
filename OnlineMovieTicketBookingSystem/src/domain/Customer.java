@@ -42,9 +42,6 @@ public class Customer extends DomainObject{
 	 * @return the customerId
 	 */
 	public int getCustomerId() {
-		if(this.customerId == -1) {
-			load();
-		}
 		return customerId;
 	}
 
@@ -98,6 +95,11 @@ public class Customer extends DomainObject{
 		if(this.lastNameString == null ) {
 			this.lastNameString = customer.lastNameString;
 		}
+	}
+
+	@Override
+	public int getId() {
+		return this.customerId;
 	}
 	
 	

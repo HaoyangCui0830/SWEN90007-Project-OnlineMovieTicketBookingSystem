@@ -55,10 +55,11 @@ public class MovieService {
 	 * insert movie info into DB
 	 * @param movie
 	 * */
-	public void insertMovie(Movie movie) {
+	public boolean insertMovie(Movie movie,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(movie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
@@ -66,7 +67,7 @@ public class MovieService {
 	 * from DB
 	 * @param movie
 	 * */
-	public void deleteMovie(Movie movie) {
+	public boolean deleteMovie(Movie movie,String owner) {
 		UnitOfWork.newCurrent();
 		
 		
@@ -96,17 +97,19 @@ public class MovieService {
 		}
 		
 		UnitOfWork.getCurrent().registerDeleted(movie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * update movie info into DB
 	 * @param movie
 	 * */
-	public void updateMovie(Movie movie) {
+	public boolean updateMovie(Movie movie,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(movie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 }

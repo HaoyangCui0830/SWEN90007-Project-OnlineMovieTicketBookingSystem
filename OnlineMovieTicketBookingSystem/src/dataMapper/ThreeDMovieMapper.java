@@ -58,6 +58,8 @@ public class ThreeDMovieMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteThreeDMovieString);
 			stmt.setInt(1, threeDmovie.getMovieId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete 3D movie Problem");
@@ -86,6 +88,8 @@ public class ThreeDMovieMapper extends DataMapper{
 			stmt.setBoolean(1, threeDmovie.getHasFreeGlasses());
 			stmt.setInt(2, threeDmovie.getMovieId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 			
 		}
 		catch(SQLException e) {
@@ -119,6 +123,8 @@ public class ThreeDMovieMapper extends DataMapper{
 				identityMap.put(threeDmovie.getMovieId(), threeDmovie);
 				result = threeDmovie;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by 3D movie id Problem");

@@ -47,30 +47,33 @@ public class CustomerService {
 	 * insert customer info into DB
 	 * @param customer
 	 * */
-	public void insertCustomer(Customer customer) {
+	public boolean insertCustomer(Customer customer,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(customer);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * delete customer from DB
 	 * @param customer
 	 * */
-	public void deleteCustomer(Customer customer) {
+	public boolean deleteCustomer(Customer customer,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(customer);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * update customer info into DB
 	 * @param customer
 	 * */
-	public void updateCustomer(Customer customer) {
+	public boolean updateCustomer(Customer customer,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(customer);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 }

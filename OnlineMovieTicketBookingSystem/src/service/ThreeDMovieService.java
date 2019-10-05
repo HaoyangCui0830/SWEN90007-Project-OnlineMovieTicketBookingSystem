@@ -40,28 +40,31 @@ public class ThreeDMovieService {
 	/**
 	 * Insert ThreeDMovie object info into DB
 	 * */
-	public void insertThreeDMovie(ThreeDMovie threeDmovie) {
+	public boolean insertThreeDMovie(ThreeDMovie threeDmovie,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(threeDmovie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * delete ThreeDMovie info from DB
 	 * */
-	public void deleteThreeDMovie(ThreeDMovie threeDmovie) {
+	public boolean deleteThreeDMovie(ThreeDMovie threeDmovie,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(threeDmovie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * Update ThreeDMovie object info into DB
 	 * */
-	public void updateThreeDMovie(ThreeDMovie threeDmovie) {
+	public boolean updateThreeDMovie(ThreeDMovie threeDmovie,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(threeDmovie);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 }

@@ -37,7 +37,7 @@ public class ManagerUpdateExistedMovieCommand extends FrontCommand{
 		movie.setPrice(Float.parseFloat(moviePrice));
 		
 		MovieService movieService = new MovieService();
-		movieService.updateMovie(movie);
+		Boolean result = movieService.updateMovie(movie,request.getSession().getId());
 		
 		ThreeDMovie threeDMovie = new ThreeDMovie();
 		ThreeDMovieService threeDMovieService = new ThreeDMovieService();
@@ -45,7 +45,7 @@ public class ManagerUpdateExistedMovieCommand extends FrontCommand{
 		threeDMovie.setMovieId(Integer.parseInt(movieId));
 		//System.out.println("3D"+isThreeD);
 		if(Boolean.parseBoolean(isThreeD)) {
-			threeDMovieService.insertThreeDMovie(threeDMovie);
+			threeDMovieService.insertThreeDMovie(threeDMovie,request.getSession().getId());
 		}
 		
 		CinemaMovie cinemaMovie = new CinemaMovie();
@@ -76,8 +76,13 @@ public class ManagerUpdateExistedMovieCommand extends FrontCommand{
 		}
 		
 		
+		if(result == true) {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
 		
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
 	}
 	
 }

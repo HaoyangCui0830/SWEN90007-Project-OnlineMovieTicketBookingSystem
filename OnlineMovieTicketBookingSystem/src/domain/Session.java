@@ -46,9 +46,6 @@ public class Session extends DomainObject{
 	 * @return the sessionId
 	 */
 	public int getSessionId() {
-		if(this.sessionId == -1) {
-			load();
-		}
 		return sessionId;
 	}
 
@@ -157,9 +154,6 @@ public class Session extends DomainObject{
 		if(this.movieId == -1) {
 			this.movieId = session.getMovieId();
 		}
-		if(this.sessionId == -1) {
-			this.sessionId = session.getSessionId();
-		}
 		if(this.seats == -1) {
 			this.seats = session.getSeats();
 		}
@@ -172,5 +166,12 @@ public class Session extends DomainObject{
 		if(this.timeRange.getEndTime() == null) {
 			this.getTimeRange().setEndTime(session.getTimeRange().getEndTime());
 		}
+	}
+
+
+
+	@Override
+	public int getId() {
+		return this.sessionId;
 	}
 }

@@ -29,7 +29,13 @@ public class ManagerUpdateExistedSessionCommand extends FrontCommand{
 		
 		SessionService SessionService = new SessionService();
 		System.out.println(Session.getTimeRange().getEndTime());
-		SessionService.updateSession(Session);
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		Boolean result = SessionService.updateSession(Session, request.getSession().getId());
+		if(result == true) {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
+		
 	}
 }
