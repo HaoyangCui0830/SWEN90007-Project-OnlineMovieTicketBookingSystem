@@ -4,10 +4,10 @@ import dataMapper.ThreeDMovieMapper;
 
 public class ThreeDMovieAssembler {
 
-	public static ThreeDMovieDTO createThreeDMovieDTO(ThreeDMovieDTO threeDMovieDTO) {
+	public static ThreeDMovieDTO createThreeDMovieDTO(ThreeDMovie threeDMovie) {
 		ThreeDMovieDTO result = new ThreeDMovieDTO();
-		result.setId(threeDMovieDTO.getId());
-		result.setHasFreeGlasses(threeDMovieDTO.getHasFreeGlasses());
+		result.setId(threeDMovie.getId());
+		result.setHasFreeGlasses(threeDMovie.getHasFreeGlasses());
 		return result;
 	}
 	
