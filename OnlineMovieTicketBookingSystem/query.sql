@@ -1,2 +1,1 @@
-SELECT * FROM Cinema;
-
+Select * FROM t_user WHERE username = 'jax'

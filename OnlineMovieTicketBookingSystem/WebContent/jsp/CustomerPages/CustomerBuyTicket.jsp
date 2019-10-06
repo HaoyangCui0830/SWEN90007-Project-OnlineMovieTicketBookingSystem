@@ -1,3 +1,4 @@
+<%@page import="domain.User"%>
 <%@page import="domain.Movie"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,11 +7,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Session</title>
+<title>Buy tickets</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<%domain.Session session1 =  (domain.Session)request.getAttribute("sessioninfo");
+<%	User user = (User)request.getSession().getAttribute("user") ;
+	//System.out.println(user);
+domain.Session session1 =  (domain.Session)request.getAttribute("sessioninfo");
 	Movie movie= new Movie();
 	movie.setMovieId(session1.getMovieId());
 System.out.println("test in frontend" + session1.getMovieId());
@@ -50,7 +53,7 @@ System.out.println("test in frontend" + session1.getMovieId());
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Customer Name</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="CustomerName">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="CustomerName" value=<%=user.getUsername()%> readOnly="true">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
@@ -70,7 +73,7 @@ System.out.println("test in frontend" + session1.getMovieId());
 </div>
 
 <div class="text-center">
-	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='FrontServlet?command=CustomerHome'" >Back</button>
+	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='../FrontServlet?command=CustomerHome'" >Back</button>
 	<input type="submit" value="Confirm and buy" class="btn btn-success centered"></input>
 	</div>
 </form>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 
@@ -17,6 +18,7 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 
 	@Override
 	public void process() throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
 		int movieId = Integer.parseInt(request.getParameter("movieId"));
 		int session = Integer.parseInt(request.getParameter("sessionId"));
 		int ticketNo = Integer.parseInt(request.getParameter("ticketId"));
@@ -34,15 +36,18 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 		ticket.setTicket_id(ticketNo);
 		
 		TicketService ticketService = new TicketService();
-		Ticket ticketSeatBefore = ticketService.geTicketById(ticketNo);
-		
-		int seatBefore = ticketSeatBefore.getSeatNumber();
-		if(seatBefore!= seat)
-		{
-			int seatAfter= session2.getAvailableSeats() + seatBefore - seat;
-			session2.setAvailableSeats(seatAfter);
-			sessionService.updateSession(session2);
+		Ticket ticketBefore = ticketService.geTicketById(ticketNo);
+		Session sessionBefore = ticketBefore.getSession();
+		sessionBefore.setAvailableSeats(sessionBefore.getAvailableSeats() + ticketBefore.getSeatNumber());
+		if((session2.getAvailableSeats() - seat)>=0) {
+			session2.setAvailableSeats(session2.getAvailableSeats() - seat);
+		}else {
+			System.out.println("Sorry, there are not that many seats");
+			out.print("<script>alert('Sorry, there are not that many seats');</script>");
+			return;
 		}
+		sessionService.updateSession(sessionBefore);
+		sessionService.updateSession(session2);
 		ticketService.updateTicket(ticket);
 	}
 

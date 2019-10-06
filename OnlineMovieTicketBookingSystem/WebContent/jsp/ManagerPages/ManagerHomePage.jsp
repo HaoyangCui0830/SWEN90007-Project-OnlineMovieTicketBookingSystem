@@ -7,7 +7,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-	  <a class="navbar-brand" href="javascript:location.href='FrontServlet?command=ToHomePage'">Online Movie Ticket Booking System</a>
+	  <a class="navbar-brand" href="javascript:location.href='FrontServlet?command=ManagerHome'">Online Movie Ticket Booking System</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -22,12 +22,14 @@
 	      <li class="nav-item">
 	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=ManagerViewAllTickets'">View All tickets</a>
 	      </li>
-	      <li class="nav-item">
+	      <%/* <li class="nav-item">
 	        <a class="nav-link" onclick="javascript:location.href='FrontServlet?command=CustomerHome'">Login as Customer</a>
 	      </li>
+	      */%>
 	    </ul>
 	    <span class="navbar-text">
-	      You currently login as a cinema manager
+	     Welcome: ${user.lastNameString}
+	     <a href="FrontServlet?command=Logout">Log out</a>
 	    </span>
 	  </div>
 	</nav>

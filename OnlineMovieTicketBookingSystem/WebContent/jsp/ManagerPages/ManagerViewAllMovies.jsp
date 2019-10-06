@@ -42,7 +42,7 @@
 	</table>
 	<div class="text-center">
 	<button  type="button" class="btn btn-dark centered" 
-	onclick="javascript:location.href='FrontServlet?command=ManagerHome'">Back</button>
+	onclick="javascript:location.href='FrontServlet?command=ToHomePage'">Back</button>
 	</div>
 	<script src="js/bootstrap.js"></script>
 </body>
