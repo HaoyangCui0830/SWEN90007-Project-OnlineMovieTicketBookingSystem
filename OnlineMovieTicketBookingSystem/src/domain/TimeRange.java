@@ -53,6 +53,12 @@ public class TimeRange extends DomainObject{
 	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
+
+
+	@Override
+	public int getId() {
+		return 0;
+	}
 	
 	
 	

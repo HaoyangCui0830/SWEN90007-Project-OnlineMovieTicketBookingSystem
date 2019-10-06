@@ -32,8 +32,9 @@ public class CinemaManagerMapper extends DataMapper{
 			stmt.setString(2, cinemaManager.getLastNameString());
 			result = stmt.executeUpdate();
 			stmt.close();
+			stmt.close();
 			DBConnection.closeConnection();
-			System.out.println(result);
+			//System.out.println(result);
 			
 		}
 		catch(SQLException e) {
@@ -62,6 +63,8 @@ public class CinemaManagerMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deletecinemaManagerString);
 			stmt.setInt(1, cinemaManager.getCinemaManagerId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete cinemaManager Problem");
@@ -91,7 +94,8 @@ public class CinemaManagerMapper extends DataMapper{
 			stmt.setString(1, cinemaManager.getFirstNameString());
 			stmt.setString(2, cinemaManager.getLastNameString());
 			result = stmt.executeUpdate();
-			
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" update cinemaManager Problem");
@@ -123,6 +127,8 @@ public class CinemaManagerMapper extends DataMapper{
 				identityMap.put(cinemaManager.getCinemaManagerId(), cinemaManager);
 				result.add(cinemaManager);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view cinemaManager Problem");
@@ -151,6 +157,8 @@ public class CinemaManagerMapper extends DataMapper{
 				identityMap.put(cinemaManager.getCinemaManagerId(), cinemaManager);
 				result = cinemaManager;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by cinemaManager id Problem");

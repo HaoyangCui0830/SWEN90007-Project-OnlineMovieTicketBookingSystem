@@ -61,6 +61,8 @@ public class CinemaMovieMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteMovieString);
 			stmt.setInt(1, cinemaMovie.getMovieId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete cinema_movie Problem");
@@ -98,6 +100,8 @@ public class CinemaMovieMapper extends DataMapper{
 				cinemaMovie.setMovieId(rs.getInt(1));
 				result.add(cinemaMovie);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view cinemas_movie by movie id Problem");

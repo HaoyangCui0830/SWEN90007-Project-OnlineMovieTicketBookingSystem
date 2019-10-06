@@ -58,6 +58,8 @@ public class CustomerMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteCustomerString);
 			stmt.setInt(1, customer.getCustomerId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete customer Problem");
@@ -85,6 +87,8 @@ public class CustomerMapper extends DataMapper{
 			stmt.setString(1, customer.getFirstNameString());
 			stmt.setString(2, customer.getLastNameString());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 			
 		}
 		catch(SQLException e) {
@@ -117,6 +121,8 @@ public class CustomerMapper extends DataMapper{
 				identityMap.put(customer.getCustomerId(), customer);
 				result.add(customer);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view customer Problem");
@@ -145,6 +151,8 @@ public class CustomerMapper extends DataMapper{
 				identityMap.put(customer.getCustomerId(), customer);
 				result = customer;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by customer id Problem");

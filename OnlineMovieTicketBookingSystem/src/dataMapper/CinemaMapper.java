@@ -31,6 +31,8 @@ public class CinemaMapper extends DataMapper{
 			stmt.setString(1, cinema.getName());
 			stmt.setString(2, cinema.getAddress());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" insert cinema Problem");
@@ -58,6 +60,8 @@ public class CinemaMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteCinemaString);
 			stmt.setInt(1, cinema.getCinemaId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete cinema Problem");
@@ -88,6 +92,8 @@ public class CinemaMapper extends DataMapper{
 			stmt.setString(2, cinema.getAddress());
 			stmt.setInt(3, cinema.getCinemaId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" update cinema Problem");
@@ -118,6 +124,8 @@ public class CinemaMapper extends DataMapper{
 				identityMap.put(cinema.getCinemaId(), cinema);
 				result.add(cinema);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view cinema Problem");

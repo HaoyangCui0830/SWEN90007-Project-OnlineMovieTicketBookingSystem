@@ -25,8 +25,13 @@ public class ManagerSubmitNewMovieCommand extends FrontCommand{
 		movie.setPrice(Float.parseFloat(moviePrice));
 		
 		MovieService movieService = new MovieService();
-		movieService.insertMovie(movie);
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		Boolean result = movieService.insertMovie(movie,request.getSession().getId());
+		if(result == true) {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
 	}
 
 }

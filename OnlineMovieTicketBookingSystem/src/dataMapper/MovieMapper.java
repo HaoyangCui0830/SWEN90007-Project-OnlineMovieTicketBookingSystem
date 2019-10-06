@@ -63,6 +63,8 @@ public class MovieMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteMovieString);
 			stmt.setInt(1, movie.getMovieId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete movie Problem");
@@ -94,6 +96,8 @@ public class MovieMapper extends DataMapper{
 			stmt.setFloat(3, movie.getPrice());
 			stmt.setInt(4, movie.getMovieId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 			
 		}
 		catch(SQLException e) {
@@ -126,10 +130,13 @@ public class MovieMapper extends DataMapper{
 				identityMap.put(movie.getMovieId(), movie);
 				result.add(movie);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view movie Problem");
 		}
+		
 		return result;
 	}
 	
@@ -155,6 +162,8 @@ public class MovieMapper extends DataMapper{
 				identityMap.put(movie.getMovieId(), movie);
 				result = movie;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by movie id Problem");
@@ -184,6 +193,8 @@ public class MovieMapper extends DataMapper{
 				identityMap.put(cinema.getCinemaId(), cinema);
 				result.add(cinema);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view cinemas by movie id Problem");

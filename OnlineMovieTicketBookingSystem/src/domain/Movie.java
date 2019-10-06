@@ -126,5 +126,11 @@ public class Movie extends DomainObject{
 		}
 		
 	}
+
+
+	@Override
+	public int getId() {
+		return this.movieId;
+	}
 	
 }

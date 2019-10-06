@@ -48,6 +48,10 @@ public class CinemaMovie extends DomainObject{
 	public void setCinemaId(int cinemaId) {
 		this.cinemaId = cinemaId;
 	}
+	@Override
+	public int getId() {
+		return this.movieId;
+	}
 	
 	
 	
