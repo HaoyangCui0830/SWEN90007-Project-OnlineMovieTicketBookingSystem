@@ -9,6 +9,10 @@ import service.MovieService;
 
 public class ManagerEditMovieCommand extends FrontCommand{
 
+	/**
+	 * Collect the movie id, return the movie object and jump into 
+	 * the edit movie information page for manager to update new information
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		Movie movie = new Movie();

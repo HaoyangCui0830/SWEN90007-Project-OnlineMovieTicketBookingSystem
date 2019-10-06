@@ -9,7 +9,6 @@ import java.util.List;
 import domain.CinemaMovie;
 import domain.DomainObject;
 import utils.DBConnection;
-import utils.IdentityMap;
 
 public class CinemaMovieMapper extends DataMapper{
 

@@ -8,6 +8,11 @@ import domain.Session;
 import service.SessionService;
 
 public class ManagerEditSessionCommand extends FrontCommand{
+	
+	/**
+	 * Collect session id and get the object in DB, jump to the edit session
+	 * page for manager to update new session information
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		Session session = new Session();

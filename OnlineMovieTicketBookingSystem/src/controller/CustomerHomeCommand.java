@@ -11,6 +11,9 @@ import service.MovieService;
 
 public class CustomerHomeCommand extends FrontCommand{
 
+	/**
+	 * Back to the Customer Home Page
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		forward("/jsp/CustomerPages/CustomerHomePage.jsp");

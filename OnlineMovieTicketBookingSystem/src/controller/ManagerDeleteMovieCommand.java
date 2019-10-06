@@ -9,6 +9,10 @@ import service.MovieService;
 
 public class ManagerDeleteMovieCommand extends FrontCommand{
 
+	/**
+	 * Collect movie id from presentation layer, and delete all information
+	 * related in the DB
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		Movie movie = new Movie();
@@ -18,7 +22,6 @@ public class ManagerDeleteMovieCommand extends FrontCommand{
 		Boolean result = movieService.deleteMovie(movie,request.getSession().getId());
 		if(result == true) {
 			request.setAttribute("movie", movie);
-			//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllMovies.jsp").forward(request, response);
 			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
 		}
 		else {

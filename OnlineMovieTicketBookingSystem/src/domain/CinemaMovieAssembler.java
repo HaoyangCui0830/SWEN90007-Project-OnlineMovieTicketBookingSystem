@@ -4,6 +4,9 @@ import dataMapper.CinemaMovieMapper;
 
 public class CinemaMovieAssembler {
 
+	/**
+	 * return cinemaMovieDTO object, called by remote facade
+	 * */
 	public static CinemaMovieDTO createCinemaMovieDTO(CinemaMovie cinemaMovie) {
 		CinemaMovieDTO cinemaMovieDTO = new CinemaMovieDTO();
 		cinemaMovieDTO.setCinemaId(cinemaMovie.getCinemaId());
@@ -11,7 +14,9 @@ public class CinemaMovieAssembler {
 		return cinemaMovieDTO;
 	}
 	
-	
+	/**
+	 * update cinemaMoive object, called by remote facade
+	 * */
 	public static boolean updateCinemaMovie(CinemaMovieDTO cinemaMovieDTO) {
 		CinemaMovie cinemaMovie = new CinemaMovie();
 		cinemaMovie.setCinemaId(cinemaMovieDTO.getCinemaId());
@@ -26,6 +31,9 @@ public class CinemaMovieAssembler {
 		return result;
 	}
 	
+	/**
+	 * insert new cinemaMovie object, called by remote facade
+	 * */
 	public static boolean addCinemaMovie(CinemaMovieDTO cinemaMovieDTO) {
 		CinemaMovie cinemaMovie = new CinemaMovie();
 		cinemaMovie.setCinemaId(cinemaMovieDTO.getCinemaId());

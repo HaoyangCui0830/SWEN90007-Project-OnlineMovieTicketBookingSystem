@@ -17,6 +17,10 @@ import service.ThreeDMovieService;
 
 public class CustomerViewMovieCommand extends FrontCommand{
 
+	
+	/**
+	 * Return one specific movie object
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		// TODO Auto-generated method stub

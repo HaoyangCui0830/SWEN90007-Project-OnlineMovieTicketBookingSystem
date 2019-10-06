@@ -4,6 +4,9 @@ import dataMapper.CinemaManagerMapper;
 
 public class CinemaManagerAssembler {
 
+	/**
+	 * Return cinemaManagerDTO object, called by remote facade
+	 * */
 	public static CinemaManagerDTO createCinemaManagerDTO(CinemaManager cinemaManager) {
 		CinemaManagerDTO result = new CinemaManagerDTO();
 		result.setCinemaManagerId(cinemaManager.getCinemaManagerId());
@@ -12,6 +15,9 @@ public class CinemaManagerAssembler {
 		return result;
 	}
 	
+	/**
+	 * update cinemaManager object, called by remote facade
+	 * */
 	public static boolean updateCinemaManagerDTO(CinemaManagerDTO cinemaManagerDTO) {
 		CinemaManager cinemaManager = new CinemaManager();
 		cinemaManager.setCinemaManagerId(cinemaManagerDTO.getCinemaManagerId());
@@ -27,6 +33,9 @@ public class CinemaManagerAssembler {
 		return result;
 	}
 	
+	/**
+	 * insert new cinemaManager object, called by remote facade
+	 * */
 	public static boolean addCinemaManagerDTO(CinemaManagerDTO cinemaManagerDTO) {
 		CinemaManager cinemaManager = new CinemaManager();
 		cinemaManager.setCinemaManagerId(cinemaManagerDTO.getCinemaManagerId());

@@ -4,6 +4,9 @@ import dataMapper.CustomerMapper;
 
 public class CustomerAssembler {
 
+	/**
+	 * return CustomerDTO object, called by remote facade
+	 * */
 	public static CustomerDTO createCustomerDTO(Customer customer) {
 		CustomerDTO result = new CustomerDTO();
 		result.setCustomerId(customer.getCustomerId());
@@ -12,6 +15,9 @@ public class CustomerAssembler {
 		return result;
 	}
 	
+	/**
+	 * update customer object, called by remote facade
+	 * */
 	public static boolean updateCustomer(CustomerDTO customerDTO) {
 		Customer customer = new Customer();
 		customer.setCustomerId(customerDTO.getCustomerId());
@@ -27,6 +33,9 @@ public class CustomerAssembler {
 		return result;
 	}
 	
+	/**
+	 * insert new customer object, called by remote facade
+	 * */
 	public static boolean addCustomer(CustomerDTO customerDTO) {
 		Customer customer = new Customer();
 		customer.setCustomerId(customerDTO.getCustomerId());

@@ -17,7 +17,10 @@ import service.SessionService;
 import service.ThreeDMovieService;
 
 public class ManagerViewMovieCommand extends FrontCommand{
-
+	
+	/**
+	 * Return all information of one specific movie to manager
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		Movie movie = new Movie();

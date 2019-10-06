@@ -4,6 +4,9 @@ import dataMapper.CinemaMapper;
 
 public class CinemaAssembler {
 	
+	/**
+	 * return DTO object based on cinema object
+	 * */
 	public static CinemaDTO createCinemaDTO(Cinema cinema) {
 		CinemaDTO result = new CinemaDTO();
 		result.setCinemaId(cinema.getCinemaId());
@@ -12,6 +15,9 @@ public class CinemaAssembler {
 		return result;
 	}
 	
+	/**
+	 * update cinema information
+	 * */
 	public static boolean updateCinema(CinemaDTO cinemaDTO) {
 		Cinema cinema = new Cinema();
 		cinema.setCinemaId(cinemaDTO.getCinemaId());
@@ -27,6 +33,9 @@ public class CinemaAssembler {
 		return result;
 	}
 	
+	/**
+	 * add new cinema Object, called by remote facade
+	 * */
 	public static boolean addCinema(CinemaDTO cinemaDTO) {
 		Cinema cinema = new Cinema();
 		cinema.setCinemaId(cinemaDTO.getCinemaId());

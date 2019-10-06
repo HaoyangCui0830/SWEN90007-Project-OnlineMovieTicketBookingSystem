@@ -18,6 +18,10 @@ import service.ThreeDMovieService;
 
 public class ManagerUpdateExistedMovieCommand extends FrontCommand{
 
+	/**
+	 * Collect all relevant information of one specific movie and 
+	 * submit all onto all related DB
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		// TODO Auto-generated method stub
