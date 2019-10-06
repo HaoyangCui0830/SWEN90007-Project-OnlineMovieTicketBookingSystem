@@ -6,6 +6,9 @@ import dataMapper.MovieMapper;
 
 public class MovieAssembler {
 
+	/**
+	 * return MovieDTO object, called by remote facade
+	 * */
 	public static MovieDTO createMovieDTO(Movie movie) {
 		MovieDTO movieDTO = new MovieDTO();
 		movieDTO.setMovieId(movie.getMovieId());
@@ -15,6 +18,9 @@ public class MovieAssembler {
 		return movieDTO;
 	}
 	
+	/**
+	 * update movie object, called by remote facade
+	 * */
 	public static boolean updateMovie(MovieDTO movieDTO) {
 		Movie movie= new Movie();
 		movie.setMovieId(movieDTO.getMovieId());
@@ -31,6 +37,9 @@ public class MovieAssembler {
 		return result;
 	}
 	
+	/**
+	 * insert new movie object, called by remote facade
+	 * */
 	public static boolean addMovie(MovieDTO movieDTO) {
 		Movie movie= new Movie();
 		movie.setMovieId(movieDTO.getMovieId());

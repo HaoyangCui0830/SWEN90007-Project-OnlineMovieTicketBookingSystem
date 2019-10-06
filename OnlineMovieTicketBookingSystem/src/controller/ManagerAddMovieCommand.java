@@ -6,11 +6,11 @@ import javax.servlet.ServletException;
 
 public class ManagerAddMovieCommand extends FrontCommand{
 
+	/**
+	 * Jump to add new Movie Page for manager to create new movie
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		String movieId = request.getParameter("movieId");
-//		System.out.println(movieId);
 		forward("/jsp/ManagerPages/ManagerAddMovie.jsp");
 	}
 

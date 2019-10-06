@@ -9,6 +9,9 @@ import service.SessionService;
 
 public class ManagerDeleteSessionCommand extends FrontCommand{
 
+	/**
+	 * Collect session id and delete all related data in the DB
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		Session Session = new Session();

@@ -9,9 +9,12 @@ import service.MovieService;
 
 public class ManagerAddSessionCommand extends FrontCommand{
 
+	/**
+	 * Collect information of one selected movie, jump to add new Session
+	 * Page for user to create new session of that movie
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Movie movie = new Movie();
 		int movieId = Integer.parseInt(request.getParameter("movieId"));
 		MovieService movieService = new MovieService();

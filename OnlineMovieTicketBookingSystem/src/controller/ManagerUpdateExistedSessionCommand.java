@@ -9,6 +9,11 @@ import domain.Session;
 import service.SessionService;
 
 public class ManagerUpdateExistedSessionCommand extends FrontCommand{
+	
+	/**
+	 * Collect all relevant information of one specific session and submit all
+	 * onto the Session DB
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -44,12 +44,17 @@ public class CustomerDTO {
 		this.lastNameString = lastNameString;
 	}
 	
-
+	/**
+	 * Convert customerDTO object to JSON
+	 * */
 	public static String serialize(CustomerDTO customerDTO) {
 		Gson gson = new Gson();
 		return gson.toJson(customerDTO);
 	}
 	
+	/**
+	 * Convert Json to CustomerDTO object
+	 * */
 	public static CustomerDTO deserialize(String customerString) {
 		Gson gson = new Gson();
 		return gson.fromJson(customerString, CustomerDTO.class);

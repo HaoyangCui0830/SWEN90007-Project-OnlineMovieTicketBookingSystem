@@ -11,6 +11,10 @@ import service.MovieService;
 import service.SessionService;
 
 public class ManagerSubmitNewSessionCommand extends FrontCommand{
+	
+	/**
+	 * Submit new Created Session object to DB
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		String MovieId = request.getParameter("movieId");

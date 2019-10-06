@@ -11,6 +11,10 @@ import service.MovieService;
 
 public class CustomerViewAllMoviesCommand extends FrontCommand{
 
+	
+	/**
+	 * Return all movie list to the customer
+	 * */
 	@Override
 	public void process() throws ServletException, IOException {
 		List<Movie> movies = new ArrayList<Movie>();

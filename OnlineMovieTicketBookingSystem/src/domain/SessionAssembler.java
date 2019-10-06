@@ -6,6 +6,9 @@ import dataMapper.SessionMapper;
 
 public class SessionAssembler {
 
+	/**
+	 * return SessionDTO object, called by remote facade
+	 * */
 	public static SessionDTO createSessionDTO(Session session) {
 		SessionDTO sessionDTO = new SessionDTO();
 		sessionDTO.setMovieId(session.getMovieId());
@@ -17,6 +20,9 @@ public class SessionAssembler {
 		return sessionDTO;
 	}
 	
+	/**
+	 * update Session object, called by remote facade
+	 * */
 	public static boolean updateSession(SessionDTO sessionDTO) {
 		Session session =  new Session();
 		session.setAvailableSeats(sessionDTO.getAvailableSeats());
@@ -36,7 +42,9 @@ public class SessionAssembler {
 		return result;
 	}
 	
-	
+	/**
+	 * insert new Session object, called by remote facade 
+	 * */
 	public static boolean addSession(SessionDTO sessionDTO) {
 		Session session =  new Session();
 		session.setAvailableSeats(sessionDTO.getAvailableSeats());

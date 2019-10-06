@@ -4,6 +4,9 @@ import dataMapper.ThreeDMovieMapper;
 
 public class ThreeDMovieAssembler {
 
+	/**
+	 * return ThreeDMovieDTO object, called by remote facade
+	 * */
 	public static ThreeDMovieDTO createThreeDMovieDTO(ThreeDMovie threeDMovie) {
 		ThreeDMovieDTO result = new ThreeDMovieDTO();
 		result.setId(threeDMovie.getId());
@@ -11,6 +14,9 @@ public class ThreeDMovieAssembler {
 		return result;
 	}
 	
+	/**
+	 * update ThreeDMovie object, called by remote facade
+	 * */
 	public static boolean updateThreeDMovie(ThreeDMovieDTO threeDMovieDTO) {
 		ThreeDMovie threeDMovie = new ThreeDMovie();
 		threeDMovie.setMovieId(threeDMovieDTO.getId());
@@ -25,6 +31,9 @@ public class ThreeDMovieAssembler {
 		return result;
 	}
 	
+	/**
+	 * insert new ThreeDMovie object, called by remote facade
+	 * */
 	public static boolean addThreeDMovie(ThreeDMovieDTO threeDMovieDTO) {
 		ThreeDMovie threeDMovie = new ThreeDMovie();
 		threeDMovie.setMovieId(threeDMovieDTO.getId());
