@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataMapper.DataMapper;
+import dataMapper.ImplicitMapper;
 import domain.DomainObject;
 
 public class UnitOfWork {
@@ -43,10 +44,13 @@ public class UnitOfWork {
 		}
 	}
 	
-	public void commit() {
+	public boolean commit(String owner) {
+		boolean insertResult = true;
+		boolean updateResult = true;
+		boolean deleteResult = true;
 		for(DomainObject domainObject : newObjects) {
 			try {
-				DataMapper.getDataMapper(domainObject).insert(domainObject);
+				insertResult = DataMapper.getDataMapper(domainObject).insert(domainObject);
 			}
 			catch (Exception e) {
 				// TODO: handle exception
@@ -55,7 +59,9 @@ public class UnitOfWork {
 		}
 		for(DomainObject domainObject : dirtyObjects) {
 			try {
-				DataMapper.getDataMapper(domainObject).update(domainObject);
+				DataMapper dataMapper = DataMapper.getDataMapper(domainObject);
+				ImplicitMapper implicitMapper = new ImplicitMapper(dataMapper, domainObject.getClass().getSimpleName(), owner);
+				updateResult = implicitMapper.update(domainObject);
 			}
 			catch (Exception e) {
 				// TODO: handle exception
@@ -64,13 +70,16 @@ public class UnitOfWork {
 		}
 		for(DomainObject domainObject : deletedObjects) {
 			try {
-				DataMapper.getDataMapper(domainObject).delete(domainObject);
+				DataMapper dataMapper = DataMapper.getDataMapper(domainObject);
+				ImplicitMapper implicitMapper = new ImplicitMapper(dataMapper, domainObject.getClass().getSimpleName(), owner);
+				deleteResult = implicitMapper.delete(domainObject);
 			}
 			catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
+		return insertResult && updateResult && deleteResult;
 		
 	}
 }

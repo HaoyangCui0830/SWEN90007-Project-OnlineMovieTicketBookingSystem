@@ -15,10 +15,16 @@ public class ManagerDeleteSessionCommand extends FrontCommand{
 		int SessionId = Integer.parseInt(request.getParameter("sessionId"));
 		SessionService SessionService = new SessionService();
 		Session = SessionService.getSessionBySessionId(SessionId);
-		SessionService.deleteSession(Session);
-		request.setAttribute("Session", Session);
-		//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllSessions.jsp").forward(request, response);
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		Boolean result = SessionService.deleteSession(Session,request.getSession().getId());
+		if(result == true) {
+			request.setAttribute("Session", Session);
+			//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllSessions.jsp").forward(request, response);
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
+		
 		
 	}
 	

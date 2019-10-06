@@ -45,10 +45,11 @@ public class SessionService {
 	 * insert session info into DB
 	 * @param session
 	 * */
-	public void insertSession(Session session) {
+	public boolean insertSession(Session session,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(session);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	
@@ -56,20 +57,22 @@ public class SessionService {
 	 * delete one session from DB
 	 * @param session
 	 * **/
-	public void deleteSession(Session session) {
+	public boolean deleteSession(Session session,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(session);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * update session info into DB
 	 * @param session
 	 * */
-	public void updateSession(Session session) {
+	public boolean updateSession(Session session,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(session);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 }

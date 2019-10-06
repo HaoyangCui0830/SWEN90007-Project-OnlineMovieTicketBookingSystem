@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import domain.DomainObject;
 import domain.Session;
@@ -34,6 +35,8 @@ public class SessionMapper extends DataMapper{
 			stmt.setInt(4, session.getSeats());
 			stmt.setInt(5, session.getAvailableSeats());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" insert session Problem");
@@ -61,6 +64,8 @@ public class SessionMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteSessionString);
 			stmt.setInt(1, session.getSessionId());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete session Problem");
@@ -95,6 +100,10 @@ public class SessionMapper extends DataMapper{
 			System.out.println(session.getSessionId());
 			//stmt.setInt(6, session.getMovieId());
 			result = stmt.executeUpdate();
+			// TODO Test for concurrency Control
+			// TimeUnit.SECONDS.sleep(5);
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" update session Problem");
@@ -129,6 +138,8 @@ public class SessionMapper extends DataMapper{
 				identityMap.put(session.getSessionId(), session);
 				result.add(session);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view session Problem");
@@ -160,6 +171,8 @@ public class SessionMapper extends DataMapper{
 				identityMap.put(session.getSessionId(), session);
 				result = session;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by session id Problem");

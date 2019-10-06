@@ -1,5 +1,7 @@
 package domain;
 
+import dataMapper.CinemaMapper;
+
 /**
  * As according to our case, cinema managers have no right to edit Cinema
  * attributes, so the class could only load all attributes at once, so 
@@ -40,9 +42,6 @@ public class Cinema extends DomainObject{
 	 * @return the cinemaId
 	 */
 	public int getCinemaId() {
-		if(this.cinemaId == -1) {
-			load();
-		}
 		return cinemaId;
 	}
 
@@ -69,9 +68,6 @@ public class Cinema extends DomainObject{
 
 
 	public String getName() {
-		if(this.name == null) {
-			load();
-		}
 		return name;
 	}
 
@@ -82,9 +78,6 @@ public class Cinema extends DomainObject{
 
 
 	public String getAddress() {
-		if(this.address == null) {
-			load();
-		}
 		return address;
 	}
 
@@ -96,10 +89,8 @@ public class Cinema extends DomainObject{
 
 
 	@Override
-	void load() {
-		 
+	public int getId() {
+		return this.cinemaId;
 	}
-	
-	
 	
 }

@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,29 +49,32 @@ public class CinemaManagerService {
 	 * insert cinemamanager info into DB
 	 * @param cinemaManager
 	 * */
-	public void insertCinemaManager(CinemaManager CinemaManager) {
+	public boolean insertCinemaManager(CinemaManager CinemaManager,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(CinemaManager);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * deletet cinemamanager from DB
 	 * @param cinemaManager
 	 * */
-	public void deleteCinemaManager(CinemaManager CinemaManager) {
+	public boolean deleteCinemaManager(CinemaManager CinemaManager,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(CinemaManager);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	/**
 	 * update cinemamanager info into DB
 	 * @param cinemaManager
 	 * */
-	public void updateCinemaManager(CinemaManager CinemaManager) {
+	public boolean updateCinemaManager(CinemaManager CinemaManager,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(CinemaManager);
-		UnitOfWork.getCurrent().commit();
+		Boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 }
