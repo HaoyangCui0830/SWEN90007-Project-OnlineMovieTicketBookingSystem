@@ -10,12 +10,12 @@
 </head>
 <body>
 <%domain.Session session1 =  (domain.Session)request.getAttribute("sessioninfo");
-System.out.println("test in frontend" + session1.getMovieId());
+System.out.println("Customer select" + session1.getMovieId());
 	        if(session1!=null){%>
 <form action="FrontServlet?command=ManagerUpdateExistedSession" method="POST">
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Movie Id</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">Movie Name</span>
   </div>
   <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="<%=session1.getMovieId()%>">
 </div>

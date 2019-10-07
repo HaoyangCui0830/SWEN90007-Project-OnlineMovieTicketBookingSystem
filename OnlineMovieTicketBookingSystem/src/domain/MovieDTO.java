@@ -1,7 +1,5 @@
 package domain;
 
-import java.sql.Time;
-
 import com.google.gson.Gson;
 
 public class MovieDTO {

@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DBConnection {
 
-	private static String DB_CONNECTION = "jdbc:postgresql://localhost:5433/OnlineMovieTicketBookingSystem";
+	private static String DB_CONNECTION = "jdbc:postgresql://localhost:5432/OnlineMovieTicketBookingSystem";
 	private static String DB_USER = "postgres";
-	private static String DB_PASSWORD = "1q2w3e4r";
+	private static String DB_PASSWORD = "123456";
 //	private static String DB_CONNECTION = "jdbc:postgresql://ec2-174-129-194-188.compute-1.amazonaws.com:5432/dc8cqhi3rh4t73";
 //	private static String DB_USER = "knmilpdisnntgf";
 //	private static String DB_PASSWORD = "1496f26ae955e994c5a92f746d9970c56f68a71e702c013c979148efc4210c7d";

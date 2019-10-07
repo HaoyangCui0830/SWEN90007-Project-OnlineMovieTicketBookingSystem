@@ -19,6 +19,7 @@ public class ManagerDeleteMovieCommand extends FrontCommand{
 		int movieId = Integer.parseInt(request.getParameter("movieId"));
 		MovieService movieService = new MovieService();
 		movie = movieService.getMovieById(movieId);
+		System.out.println(request.getSession().getId());
 		Boolean result = movieService.deleteMovie(movie,request.getSession().getId());
 		if(result == true) {
 			request.setAttribute("movie", movie);
