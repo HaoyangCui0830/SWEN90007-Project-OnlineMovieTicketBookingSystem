@@ -112,5 +112,10 @@ public class Ticket extends DomainObject{
 				+ ", movie=" + movie.getName() + ", session="
 				+ session.getTimeRange().getStartTime()+"------"+session.getTimeRange().getEndTime() + ", cinema=" + cinema.getName() + ", seatNumber=" + seatNumber + "]";
 	}
+
+	@Override
+	public int getId() {
+		return this.ticket_id;
+	}
 	
 }

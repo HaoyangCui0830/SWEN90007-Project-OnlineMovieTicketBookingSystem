@@ -30,22 +30,25 @@ public class UserService{
 	
 
 	
-	public void insertUser(User user) {
+	public boolean insertUser(User user,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(user);
-		UnitOfWork.getCurrent().commit();
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
-	public void deleteUser(User user) {
+	public boolean deleteUser(User user,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(user);
-		UnitOfWork.getCurrent().commit();
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
-	public void updateUser(User user) {
+	public boolean updateUser(User user,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(user);
-		UnitOfWork.getCurrent().commit();
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	

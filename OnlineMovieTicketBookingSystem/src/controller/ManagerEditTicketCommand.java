@@ -16,7 +16,7 @@ public class ManagerEditTicketCommand extends FrontCommand{
 		Ticket ticket = new Ticket();
 		int ticketId = Integer.parseInt(request.getParameter("ticketId"));
 		TicketService ticketService = new TicketService();
-		ticket = ticketService.geTicketById(ticketId);
+		ticket = ticketService.getTicketById(ticketId);
 		System.out.println(ticket);
 		request.setAttribute("ticket", ticket);
 

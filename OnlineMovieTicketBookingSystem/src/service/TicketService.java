@@ -2,7 +2,7 @@ package service;
 import java.util.List;
 
 import dataMapper.TicketMapper;
-
+import domain.Session;
 import domain.Ticket;
 import utils.IdentityMap;
 import utils.UnitOfWork;
@@ -11,17 +11,14 @@ public class TicketService {
 	TicketMapper ticketMapper;
 	
 	public TicketService() {
-		this.ticketMapper = new TicketMapper();// TODO Auto-generated constructor stub
+		this.ticketMapper = new TicketMapper();
 	}
 	
 	public List<Ticket> getAllTickets(){
-		
-//		List<Ticket> tickets = new ArrayList<Ticket>();
-//		tickets = ticketMapper.findAllTickets();
 		return ticketMapper.findAllTickets();
 	}
 	
-	public Ticket geTicketById(int ticketId) {
+	public Ticket getTicketById(int ticketId) {
 		Ticket ticket = new Ticket();
 		ticket.setTicket_id(ticketId);
 		IdentityMap<Ticket> identityMap = IdentityMap.getInstance(ticket);
@@ -34,28 +31,35 @@ public class TicketService {
 		}
 	}
 	
-	public List<Ticket> geTicketByCustomerName(String name) {
+	public List<Ticket> getTicketByCustomerName(String name) {
 	
 		return ticketMapper.findTicketsByCustomerName(name);
 	
 	}
 	
-	public void insertTicket(Ticket ticket) {
+	public boolean insertTicket(Ticket ticket,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(ticket);
-		UnitOfWork.getCurrent().commit();
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
-	public void deleteTicket(Ticket ticket) {
+	public boolean deleteTicket(Ticket ticket, String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(ticket);
-		UnitOfWork.getCurrent().commit();
+//		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
-	public void updateTicket(Ticket ticket) {
+	public boolean updateTicket(Ticket ticket, String owner) {
+//		Ticket oldTicket = getTicketById(ticket.getId());
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(ticket);
-		UnitOfWork.getCurrent().commit();
+//		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
+//		UnitOfWork.getCurrent().registerDirty(oldTicket.getSession());
+		boolean result = UnitOfWork.getCurrent().commit(owner);
+		return result;
 	}
 	
 	

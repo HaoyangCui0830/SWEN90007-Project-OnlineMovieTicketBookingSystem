@@ -34,7 +34,7 @@ public class RegisterCommand extends FrontCommand{
 			return;
 		}
 		User newUser = new User(username, password1, role, firstName, lastName);
-		uService.insertUser(newUser);
+		uService.insertUser(newUser, request.getSession().getId());
 		response.getWriter().write("Register successfully");
 		request.getSession().setAttribute("user", newUser);
 		response.setHeader("refresh", "1;url="+request.getContextPath());

@@ -26,7 +26,7 @@ public class CustomerPaymentCommand extends FrontCommand{
 		if(ticketNo>session2.getAvailableSeats()) {
 			System.out.println("Sorry, there are not that many seats");
 			out.print("<script>alert('Sorry, there are not that many seats');</script>");
-//			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
+			forward("/jsp/errorPage.jsp");
 			return;
 		}
 		String cinema = request.getParameter("cinemaId");
@@ -38,9 +38,13 @@ public class CustomerPaymentCommand extends FrontCommand{
 		Movie movie = movieService.getMovieById(movieId);
 
 		Ticket ticket = new Ticket(customerName, cinema2, movie, session2, ticketNo);
-		System.out.println(ticket);
-		new TicketService().insertTicket(ticket);
+//		System.out.println(ticket);
+		
 		session2.setAvailableSeats(session2.getAvailableSeats() - ticketNo);
-		sessionService.updateSession(session2);
+		System.out.println(request.getSession().getId());
+		boolean result = new TicketService().insertTicket(ticket, request.getSession().getId());
+		System.out.println(result);
+		boolean result2 = new SessionService().updateSession(session2, request.getSession().getId());
+		System.out.println(result2);
 	}
 }

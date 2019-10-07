@@ -36,7 +36,7 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 		ticket.setTicket_id(ticketNo);
 		
 		TicketService ticketService = new TicketService();
-		Ticket ticketBefore = ticketService.geTicketById(ticketNo);
+		Ticket ticketBefore = ticketService.getTicketById(ticketNo);
 		Session sessionBefore = ticketBefore.getSession();
 		sessionBefore.setAvailableSeats(sessionBefore.getAvailableSeats() + ticketBefore.getSeatNumber());
 		if((session2.getAvailableSeats() - seat)>=0) {
@@ -46,9 +46,9 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 			out.print("<script>alert('Sorry, there are not that many seats');</script>");
 			return;
 		}
-		sessionService.updateSession(sessionBefore);
-		sessionService.updateSession(session2);
-		ticketService.updateTicket(ticket);
+		sessionService.updateSession(sessionBefore, request.getSession().getId());
+		sessionService.updateSession(session2, request.getSession().getId());
+		ticketService.updateTicket(ticket, request.getSession().getId());
 	}
 
 }

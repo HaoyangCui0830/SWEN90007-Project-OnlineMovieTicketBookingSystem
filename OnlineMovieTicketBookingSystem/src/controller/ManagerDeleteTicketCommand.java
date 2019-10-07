@@ -15,14 +15,14 @@ public class ManagerDeleteTicketCommand extends FrontCommand{
 	public void process() throws ServletException, IOException {
 		int ticketNo = Integer.parseInt(request.getParameter("ticketId"));
 		TicketService ticketService = new TicketService();
-		Ticket ticket = ticketService.geTicketById(ticketNo);
+		Ticket ticket = ticketService.getTicketById(ticketNo);
 		int seats = ticket.getSeatNumber();
 		
-		ticketService.deleteTicket(ticket);
+		ticketService.deleteTicket(ticket, request.getSession().getId());
 		SessionService sessionService = new SessionService();
 		Session session = ticket.getSession();
 		session.setAvailableSeats(session.getAvailableSeats() + seats);
-		sessionService.updateSession(session);
+		sessionService.updateSession(session, request.getSession().getId());
 	}
 
 }

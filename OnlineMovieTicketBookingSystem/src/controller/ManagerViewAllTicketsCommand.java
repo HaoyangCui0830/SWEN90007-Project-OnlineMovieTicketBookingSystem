@@ -19,10 +19,6 @@ public class ManagerViewAllTicketsCommand extends FrontCommand{
 		TicketService ticketService = new TicketService();
 		tickets = ticketService.getAllTickets();
 		request.setAttribute("tickets", tickets);
-//		MovieService movieService = new MovieService();
-//		movies = movieService.getAllMovies();
-//		request.setAttribute("movies", movies);
-		//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllMovies.jsp").forward(request, response);
 		forward("/jsp/ManagerPages/ManagerViewAllTickets.jsp");
 		
 	}

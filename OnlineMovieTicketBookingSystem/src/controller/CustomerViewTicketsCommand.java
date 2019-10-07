@@ -19,7 +19,7 @@ public class CustomerViewTicketsCommand extends FrontCommand{
 			response.getWriter().write("please login to check your tickets");
 		}
 		List<Ticket> list = new ArrayList<Ticket>();
-		list = new TicketService().geTicketByCustomerName(user.getUsername());
+		list = new TicketService().getTicketByCustomerName(user.getUsername());
 		request.setAttribute("tickets", list);
 		forward("/jsp/CustomerPages/CustomerViewTickets.jsp");
 	}

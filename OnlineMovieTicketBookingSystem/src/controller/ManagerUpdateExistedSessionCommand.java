@@ -27,9 +27,9 @@ public class ManagerUpdateExistedSessionCommand extends FrontCommand{
 		Session.setSeats(Integer.valueOf(SessionTotalSeats));
 		Session.setAvailableSeats(Integer.valueOf(SessionAvailableSeats));
 		
-		SessionService SessionService = new SessionService();
+		SessionService sessionService = new SessionService();
 		System.out.println(Session.getTimeRange().getEndTime());
-		Boolean result = SessionService.updateSession(Session, request.getSession().getId());
+		Boolean result = sessionService.updateSession(Session, request.getSession().getId());
 		if(result == true) {
 			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
 		}

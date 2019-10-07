@@ -2,12 +2,12 @@ package domain;
 
 public class User extends DomainObject{
 
-	private int userId = -1;
+	private int userId;
 	private String firstNameString;
 	private String lastNameString;
-	private String username=null;
+	private String username;
 	private String password;
-	private String role; // 0 for manager, 1 for customer
+	private String role;
 	
 	public User() {
 		
@@ -79,6 +79,13 @@ public class User extends DomainObject{
 				+ username + ", password=" + password + ", role=" + role + "]";
 	}
 
+	@Override
+	public int getId() {
+		return this.userId;
+	}
+
+	
+	
 	
 //	@Override
 //	/**
