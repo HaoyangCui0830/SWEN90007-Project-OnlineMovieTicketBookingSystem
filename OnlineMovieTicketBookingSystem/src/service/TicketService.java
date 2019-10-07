@@ -1,6 +1,7 @@
 package service;
 import java.util.List;
 
+import dataMapper.SessionMapper;
 import dataMapper.TicketMapper;
 import domain.Session;
 import domain.Ticket;
@@ -40,24 +41,30 @@ public class TicketService {
 	public boolean insertTicket(Ticket ticket,String owner) {
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerNew(ticket);
+		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
 		boolean result = UnitOfWork.getCurrent().commit(owner);
 		return result;
 	}
 	
 	public boolean deleteTicket(Ticket ticket, String owner) {
+
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(ticket);
-//		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
+		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
+		
 		boolean result = UnitOfWork.getCurrent().commit(owner);
 		return result;
 	}
 	
-	public boolean updateTicket(Ticket ticket, String owner) {
-//		Ticket oldTicket = getTicketById(ticket.getId());
+	public boolean updateTicket(Ticket ticket, Session oldSession, String owner) {
+//		Ticket oldTicket = new TicketService().getTicketById(ticket.getTicket_id());
+//		Session oldSession = oldTicket.getSession();
+//		oldSession.setAvailableSeats(oldSession.getAvailableSeats() + oldTicket.getSeatNumber());
+		
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(ticket);
-//		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
-//		UnitOfWork.getCurrent().registerDirty(oldTicket.getSession());
+		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
+		UnitOfWork.getCurrent().registerDirty(oldSession);
 		boolean result = UnitOfWork.getCurrent().commit(owner);
 		return result;
 	}

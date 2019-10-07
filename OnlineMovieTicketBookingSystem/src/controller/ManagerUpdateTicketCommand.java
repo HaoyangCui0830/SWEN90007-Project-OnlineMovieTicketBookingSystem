@@ -46,9 +46,16 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 			out.print("<script>alert('Sorry, there are not that many seats');</script>");
 			return;
 		}
-		sessionService.updateSession(sessionBefore, request.getSession().getId());
-		sessionService.updateSession(session2, request.getSession().getId());
-		ticketService.updateTicket(ticket, request.getSession().getId());
+//		sessionService.updateSession(sessionBefore, request.getSession().getId());
+//		sessionService.updateSession(session2, request.getSession().getId());
+		boolean result = ticketService.updateTicket(ticket,sessionBefore, request.getSession().getId());
+		if(result == true) {
+			response.getWriter().write("successfully");
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
 	}
 
 }

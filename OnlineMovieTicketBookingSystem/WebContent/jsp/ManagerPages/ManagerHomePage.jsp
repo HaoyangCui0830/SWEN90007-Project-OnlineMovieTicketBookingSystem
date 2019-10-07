@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<%@page import="domain.User"%>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Online Movie Ticket Booking</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
+<% User user = (User)request.getSession().getAttribute("user");
+%>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
 	  <a class="navbar-brand" href="javascript:location.href='FrontServlet?command=ManagerHome'">Online Movie Ticket Booking System</a>

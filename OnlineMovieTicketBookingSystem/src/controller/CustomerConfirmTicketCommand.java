@@ -43,10 +43,9 @@ public class CustomerConfirmTicketCommand extends FrontCommand{
 		if(ticketNo>session2.getAvailableSeats()) {
 			System.out.println("Sorry, there are not that many seats");
 			out.print("<script>alert('Sorry, there are not that many seats');</script>");
-//			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 			return;
 		}	
-//		System.out.println("11111");
+
 		Ticket ticket = new Ticket(customerName, cinema2, movie, session2, ticketNo);
 		request.setAttribute("ticket", ticket);
 		request.getRequestDispatcher("/jsp/CustomerPages/CustomerPay.jsp").forward(request, response);

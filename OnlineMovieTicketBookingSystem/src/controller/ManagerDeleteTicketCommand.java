@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 
 import domain.Session;
 import domain.Ticket;
-import service.SessionService;
 import service.TicketService;
 
 public class ManagerDeleteTicketCommand extends FrontCommand{
@@ -18,11 +17,15 @@ public class ManagerDeleteTicketCommand extends FrontCommand{
 		Ticket ticket = ticketService.getTicketById(ticketNo);
 		int seats = ticket.getSeatNumber();
 		
-		ticketService.deleteTicket(ticket, request.getSession().getId());
-		SessionService sessionService = new SessionService();
 		Session session = ticket.getSession();
 		session.setAvailableSeats(session.getAvailableSeats() + seats);
-		sessionService.updateSession(session, request.getSession().getId());
+		boolean result = ticketService.deleteTicket(ticket, request.getSession().getId());
+		if(result == true) {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
 	}
 
 }

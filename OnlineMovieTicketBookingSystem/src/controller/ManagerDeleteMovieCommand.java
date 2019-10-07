@@ -16,16 +16,16 @@ public class ManagerDeleteMovieCommand extends FrontCommand{
 		MovieService movieService = new MovieService();
 		movie = movieService.getMovieById(movieId);
 		System.out.println(request.getSession().getId());
-//		Boolean result = movieService.deleteMovie(movie,request.getSession().getId());
-//		if(result == true) {
-//			request.setAttribute("movie", movie);
-//			//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllMovies.jsp").forward(request, response);
-//			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
-//		}
-//		else {
-//			forward("/jsp/errorPage.jsp");
-//		}
-//		
+		Boolean result = movieService.deleteMovie(movie,request.getSession().getId());
+		if(result == true) {
+			request.setAttribute("movie", movie);
+			//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllMovies.jsp").forward(request, response);
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		else {
+			forward("/jsp/errorPage.jsp");
+		}
+		
 		
 	}
 

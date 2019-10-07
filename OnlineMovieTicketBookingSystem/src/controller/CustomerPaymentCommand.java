@@ -41,10 +41,14 @@ public class CustomerPaymentCommand extends FrontCommand{
 //		System.out.println(ticket);
 		
 		session2.setAvailableSeats(session2.getAvailableSeats() - ticketNo);
-		System.out.println(request.getSession().getId());
 		boolean result = new TicketService().insertTicket(ticket, request.getSession().getId());
-		System.out.println(result);
-		boolean result2 = new SessionService().updateSession(session2, request.getSession().getId());
-		System.out.println(result2);
+		if (result== true) {
+			response.getWriter().write("successfully");
+			response.setHeader("refresh", "1;url="+request.getContextPath());
+		}else {
+			forward("/jsp/errorPage.jsp");
+		}
+		
+		
 	}
 }
