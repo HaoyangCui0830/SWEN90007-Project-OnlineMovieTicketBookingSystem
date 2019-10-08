@@ -1,6 +1,6 @@
-DROP TABLE t_user;
+DROP TABLE users;
 
-CREATE TABLE t_user(
+CREATE TABLE users(
 	user_id INT GENERATED ALWAYS AS IDENTITY,
 	username VARCHAR(150),
 	password VARCHAR(150),
@@ -13,4 +13,5 @@ CREATE TABLE t_user(
 );
 
 
-
+INSERT INTO users (username, password, role, first_name, last_name) VALUES ('hannah', '1q2w3e4r', 'manager', 'hannah', 'yang');
+INSERT INTO users (username, password, role, first_name, last_name) VALUES ('haoyang', '1q2w3e4r', 'customer', 'haoyang', 'cui');

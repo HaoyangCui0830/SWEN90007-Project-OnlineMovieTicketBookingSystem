@@ -17,11 +17,15 @@ public class CustomerViewTicketsCommand extends FrontCommand{
 		User user = (User) request.getSession().getAttribute("user");
 		if(user==null) {
 			response.getWriter().write("please login to check your tickets");
+			forward("/jsp/errorPage.jsp");
 		}
-		List<Ticket> list = new ArrayList<Ticket>();
-		list = new TicketService().getTicketByCustomerName(user.getUsername());
-		request.setAttribute("tickets", list);
-		forward("/jsp/CustomerPages/CustomerViewTickets.jsp");
+		else {
+			List<Ticket> list = new ArrayList<Ticket>();
+			list = new TicketService().getTicketByCustomerName(user.getUsername());
+			request.setAttribute("tickets", list);
+			forward("/jsp/CustomerPages/CustomerViewTickets.jsp");
+		}
+		
 	}
 
 }

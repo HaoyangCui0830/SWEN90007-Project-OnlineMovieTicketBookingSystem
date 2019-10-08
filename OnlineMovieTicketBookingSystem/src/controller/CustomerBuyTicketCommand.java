@@ -16,11 +16,14 @@ public class CustomerBuyTicketCommand extends FrontCommand{
 			request.setAttribute("BuyTicketMsg","please login first");
 			forward("/jsp/Common/Login.jsp");
 		}
-		Session session = new Session();
-		int sessionId = Integer.parseInt(request.getParameter("sessionId"));
-		SessionService SessionService = new SessionService();
-		session = SessionService.getSessionBySessionId(sessionId);
-		request.setAttribute("sessioninfo", session);
-		forward("/jsp/CustomerPages/CustomerBuyTicket.jsp");
+		else {
+			Session session = new Session();
+			int sessionId = Integer.parseInt(request.getParameter("sessionId"));
+			SessionService SessionService = new SessionService();
+			session = SessionService.getSessionBySessionId(sessionId);
+			request.setAttribute("sessioninfo", session);
+			forward("/jsp/CustomerPages/CustomerBuyTicket.jsp");
+		}
+		
 	}
 }

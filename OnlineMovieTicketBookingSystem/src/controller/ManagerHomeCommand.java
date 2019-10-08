@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 
+import domain.User;
+
 public class ManagerHomeCommand extends FrontCommand{
 
 	/**
@@ -12,7 +14,15 @@ public class ManagerHomeCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		User user = (User) request.getSession().getAttribute("user");
+		if(user==null) {
+			response.getWriter().write("please login to check your tickets");
+			forward("/jsp/errorPage.jsp");
+		}
+		else {
+			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+		}
+		
 	}
 
 }

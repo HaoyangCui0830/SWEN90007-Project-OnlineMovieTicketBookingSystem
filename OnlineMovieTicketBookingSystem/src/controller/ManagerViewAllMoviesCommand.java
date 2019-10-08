@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 
 import domain.Movie;
+import domain.User;
 import service.MovieService;
 
 public class ManagerViewAllMoviesCommand extends FrontCommand{
@@ -16,11 +17,19 @@ public class ManagerViewAllMoviesCommand extends FrontCommand{
 	 * */
 	@Override
 	public void process() throws ServletException, IOException {
-		List<Movie> movies = new ArrayList<Movie>();
-		MovieService movieService = new MovieService();
-		movies = movieService.getAllMovies();
-		request.setAttribute("movies", movies);
-		forward("/jsp/ManagerPages/ManagerViewAllMovies.jsp");
+		User user = (User) request.getSession().getAttribute("user");
+		if(user==null) {
+			response.getWriter().write("please login to check your tickets");
+			forward("/jsp/errorPage.jsp");
+		}
+		else {
+			List<Movie> movies = new ArrayList<Movie>();
+			MovieService movieService = new MovieService();
+			movies = movieService.getAllMovies();
+			request.setAttribute("movies", movies);
+			forward("/jsp/ManagerPages/ManagerViewAllMovies.jsp");
+		}
+		
 		
 	}
 

@@ -1,1 +1,1 @@
-Select * FROM t_user WHERE username = 'jax'
+Select * FROM Lock

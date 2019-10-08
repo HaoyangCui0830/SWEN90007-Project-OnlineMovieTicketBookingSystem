@@ -15,7 +15,7 @@ public class UserMapper extends DataMapper{
 	@Override
 	public boolean insert(DomainObject object) {
 		User user = (User)object;
-		String insertUserString = "INSERT INTO t_user (username, password, role, first_name, last_name) VALUES"
+		String insertUserString = "INSERT INTO users (username, password, role, first_name, last_name) VALUES"
 				+ "(?,?,?,?,?)";
 		int result = 0;
 		//Boolean result = false;
@@ -46,7 +46,7 @@ public class UserMapper extends DataMapper{
 	@Override
 	public boolean delete(DomainObject object) throws Exception {
 		User user = (User)object;
-		String deleteUserString = "DELETE FROM t_user WHERE username = ?";
+		String deleteUserString = "DELETE FROM users WHERE username = ?";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(deleteUserString);
@@ -54,7 +54,7 @@ public class UserMapper extends DataMapper{
 			result = stmt.executeUpdate();
 		}
 		catch(SQLException e) {
-			System.out.println(this.getClass().toString()+" delete movie Problem");
+			System.out.println(this.getClass().toString()+" delete user Problem");
 		}
 		if(result == 0) {
 			return false;
@@ -67,7 +67,7 @@ public class UserMapper extends DataMapper{
 	@Override
 	public boolean update(DomainObject object) throws Exception {
 		User user = (User)object;
-		String updateUserString = "UPDATE t_user SET password = ?,first_name = ?, last_name = ? WHERE username = ?";
+		String updateUserString = "UPDATE users SET password = ?,first_name = ?, last_name = ? WHERE username = ?";
 		int result = 0;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(updateUserString);
@@ -92,7 +92,7 @@ public class UserMapper extends DataMapper{
 	}
 
 	public List<User> findAllUsers(){
-		String findAllUsers = "SELECT * FROM t_user";
+		String findAllUsers = "SELECT * FROM users";
 		List<User> result = new ArrayList<User>();
 		try {
 			PreparedStatement stmt = DBConnection.prepare(findAllUsers);
@@ -118,7 +118,7 @@ public class UserMapper extends DataMapper{
 	}
 
 	public User findUserByUsername(String username) {
-		String findUserByUsername = "Select * FROM t_user WHERE username = ?";
+		String findUserByUsername = "Select * FROM users WHERE username = ?";
 		User result = new User();
 		try {
 			PreparedStatement stmt = DBConnection.prepare(findUserByUsername);
