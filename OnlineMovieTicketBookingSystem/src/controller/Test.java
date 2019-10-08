@@ -16,20 +16,21 @@ public class Test {
 		int oldSeats =ticket.getSeatNumber();
 		Session oleSession = ticket.getSession();
 		
-		System.out.println("之前的场次：" + ticket.getSession().getSessionId() +  "前座位" + ticket.getSession().getAvailableSeats());
+		System.out.println("之前锟侥筹拷锟轿ｏ拷" + ticket.getSession().getSessionId() +  "前锟斤拷位" + ticket.getSession().getAvailableSeats());
 		Session newsession = new SessionService().getSessionBySessionId(2);
-		System.out.println("新场次之前的座位" + newsession.getAvailableSeats());
+		System.out.println("锟铰筹拷锟斤拷之前锟斤拷锟斤拷位" + newsession.getAvailableSeats());
 		
 		ticket.setSeatNumber(3);
 		ticket.setSession(newsession);
 		
 		oleSession.setAvailableSeats(oleSession.getAvailableSeats() + oldSeats);
 		newsession.setAvailableSeats(newsession.getAvailableSeats()- ticket.getSeatNumber());
-		new TicketService().updateTicket(ticket, "11");
+		//new TicketService().updateTicket(ticket, "11");
+		//new TicketService().updateTicket(ticket, oldSession, owner);
 
 		
 //		new TicketService().insertTicket(ticket2, "11");
-//		System.out.println("前座位" + ticket.getSession().getAvailableSeats());
+//		System.out.println("前锟斤拷位" + ticket.getSession().getAvailableSeats());
 		
 		
 	}

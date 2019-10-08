@@ -51,6 +51,9 @@ public class UnitOfWork {
 		for(DomainObject domainObject : newObjects) {
 			try {
 				insertResult = DataMapper.getDataMapper(domainObject).insert(domainObject);
+				if(insertResult == false) {
+					return insertResult;
+				}
 			}
 			catch (Exception e) {
 				// TODO: handle exception
@@ -62,6 +65,10 @@ public class UnitOfWork {
 				DataMapper dataMapper = DataMapper.getDataMapper(domainObject);
 				ImplicitMapper implicitMapper = new ImplicitMapper(dataMapper, domainObject.getClass().getSimpleName(), owner);
 				updateResult = implicitMapper.update(domainObject);
+				if(updateResult == false) {
+					return false;
+				}
+				//System.out.print("commit outcome" + updateResult);
 			}
 			catch (Exception e) {
 				// TODO: handle exception
@@ -73,6 +80,9 @@ public class UnitOfWork {
 				DataMapper dataMapper = DataMapper.getDataMapper(domainObject);
 				ImplicitMapper implicitMapper = new ImplicitMapper(dataMapper, domainObject.getClass().getSimpleName(), owner);
 				deleteResult = implicitMapper.delete(domainObject);
+				if(deleteResult == false) {
+					return false;
+				}
 			}
 			catch (Exception e) {
 				// TODO: handle exception

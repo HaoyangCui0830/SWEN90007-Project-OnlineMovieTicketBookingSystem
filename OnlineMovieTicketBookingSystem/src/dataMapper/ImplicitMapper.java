@@ -43,6 +43,10 @@ public class ImplicitMapper extends DataMapper{
 		try {
 			if(lm.acquireLock(objectType, Integer.toString(object.getId()), sessionId) == true) {
 				boolean result = impl.delete(object);
+				System.out.println("delete");
+				System.out.println(objectType);
+				System.out.println(Integer.toString(object.getId()));
+				System.out.println(sessionId);
 				lm.releaseLock(objectType, Integer.toString(object.getId()), sessionId);
 				return result;
 			}
@@ -63,6 +67,10 @@ public class ImplicitMapper extends DataMapper{
 		try {
 			if(lm.acquireLock(objectType, Integer.toString(object.getId()), sessionId) == true) {
 				boolean result = impl.update(object);
+				System.out.println("update");
+				System.out.println(objectType);
+				System.out.println(Integer.toString(object.getId()));
+				System.out.println(sessionId);
 				lm.releaseLock(objectType, Integer.toString(object.getId()), sessionId);
 				return result;
 			}

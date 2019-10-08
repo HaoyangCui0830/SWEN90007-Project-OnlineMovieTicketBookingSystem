@@ -26,6 +26,7 @@ public class FrontServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		FrontCommand command = getCommand(request);
 		command.init(getServletContext(), request, response);
 		command.process();
