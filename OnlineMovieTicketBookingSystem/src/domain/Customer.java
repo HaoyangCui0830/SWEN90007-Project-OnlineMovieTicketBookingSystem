@@ -2,7 +2,7 @@ package domain;
 
 import dataMapper.CustomerMapper;
 
-public class Customer extends DomainObject{
+public class Customer extends User{
 
 	private int customerId = -1;
 	private String firstNameString;

@@ -12,7 +12,7 @@ public class CustomerBuyTicketCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		User user = (User)request.getSession().getAttribute("user");
-		if(user == null) {
+		if(user == null || user.getRole().equals("customer")==false) {
 			request.setAttribute("BuyTicketMsg","please login first");
 			forward("/jsp/Common/Login.jsp");
 		}
