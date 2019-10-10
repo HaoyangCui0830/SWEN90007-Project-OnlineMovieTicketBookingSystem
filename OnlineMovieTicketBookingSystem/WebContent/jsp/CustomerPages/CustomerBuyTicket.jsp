@@ -27,7 +27,7 @@ System.out.println("test in frontend" + session1.getMovieId());
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Movie Name</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">Movie Id</span>
   </div>
   <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="<%=movie.getMovieId() %>" readOnly="true">
 </div>

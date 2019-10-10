@@ -18,7 +18,8 @@ public class CustomerBuyTicketCommand extends FrontCommand{
 		}
 		else {
 			Session session = new Session();
-			int sessionId = Integer.parseInt(request.getParameter("sessionId"));
+			String sessionIdString= request.getParameter("sessionId");
+			int sessionId = Integer.parseInt(sessionIdString);
 			SessionService SessionService = new SessionService();
 			session = SessionService.getSessionBySessionId(sessionId);
 			request.setAttribute("sessioninfo", session);

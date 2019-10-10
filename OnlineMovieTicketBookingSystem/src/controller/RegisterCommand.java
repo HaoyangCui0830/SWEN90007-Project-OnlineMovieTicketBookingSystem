@@ -37,7 +37,8 @@ public class RegisterCommand extends FrontCommand{
 		uService.insertUser(newUser, request.getSession().getId());
 		response.getWriter().write("Register successfully");
 		request.getSession().setAttribute("user", newUser);
-		response.setHeader("refresh", "1;url="+request.getContextPath());
+		//response.setHeader("refresh", "1;url="+request.getContextPath());
+		forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 		
 	}
 

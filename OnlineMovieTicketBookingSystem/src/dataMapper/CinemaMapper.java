@@ -154,6 +154,8 @@ public class CinemaMapper extends DataMapper{
 				identityMap.put(cinema.getCinemaId(), cinema);
 				result = cinema;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view by cinema id Problem");

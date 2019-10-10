@@ -52,12 +52,12 @@ public class UserLoginCommand extends FrontCommand{
 			if (user.getRole().equals("manager")) {
 	 			HttpSession httpSession = request.getSession();
 	 			httpSession.setAttribute("user", user);
-	 			httpSession.setMaxInactiveInterval(60*60*24);
+	 			httpSession.setMaxInactiveInterval(60*60*1);
 				forward("/jsp/ManagerPages/ManagerHomePage.jsp");
 			}else if (user.getRole().equals("customer")) {
 				HttpSession httpSession = request.getSession();
 	 			httpSession.setAttribute("user", user);
-	 			httpSession.setMaxInactiveInterval(60*60*24);
+	 			httpSession.setMaxInactiveInterval(60*60*1);
 				forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 			}
 			

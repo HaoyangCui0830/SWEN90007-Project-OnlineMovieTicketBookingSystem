@@ -30,15 +30,18 @@ public class TicketMapper extends DataMapper{
 			stmt.setInt(4, ticket.getCinema().getCinemaId());
 			stmt.setInt(5, ticket.getSeatNumber());
 			result = stmt.executeUpdate();
+			
+			System.out.println(result);
 			stmt.close();
 			DBConnection.closeConnection();
-			System.out.println(result);
 			
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println(this.getClass().toString()+" insert ticket Problem");
 		}
+		
+		
 		if(result == 0) {
 			return false;
 		}
@@ -56,6 +59,8 @@ public class TicketMapper extends DataMapper{
 			PreparedStatement stmt = DBConnection.prepare(deleteTicketString);
 			stmt.setInt(1, ticket.getTicket_id());
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" delete ticket Problem");
@@ -83,7 +88,8 @@ public class TicketMapper extends DataMapper{
 			stmt.setInt(5, ticket.getSeatNumber());
 			stmt.setInt(6, ticket.getTicket_id());
 			result = stmt.executeUpdate();
-			
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			//e.printStackTrace();
@@ -124,6 +130,8 @@ public class TicketMapper extends DataMapper{
 //				identityMap.put(movie.getMovieId(), movie);
 //				result.add(movie);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view ticket Problem");
@@ -154,6 +162,8 @@ public class TicketMapper extends DataMapper{
 				result.add(ticket);
 				
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view ticket by "
@@ -186,6 +196,8 @@ public class TicketMapper extends DataMapper{
 				result = ticket;
 				
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view ticket by "

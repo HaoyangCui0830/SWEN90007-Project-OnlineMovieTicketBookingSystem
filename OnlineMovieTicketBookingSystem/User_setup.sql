@@ -14,4 +14,5 @@ CREATE TABLE users(
 
 
 INSERT INTO users (username, password, role, first_name, last_name) VALUES ('hannah', '1q2w3e4r', 'manager', 'hannah', 'yang');
+INSERT INTO users (username, password, role, first_name, last_name) VALUES ('admin', '12345678', 'manager', 'admin', 'manager');
 INSERT INTO users (username, password, role, first_name, last_name) VALUES ('haoyang', '1q2w3e4r', 'customer', 'haoyang', 'cui');
