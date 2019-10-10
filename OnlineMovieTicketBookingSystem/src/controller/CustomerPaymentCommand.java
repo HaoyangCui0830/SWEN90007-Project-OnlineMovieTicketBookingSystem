@@ -18,9 +18,17 @@ public class CustomerPaymentCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		int movieId = Integer.parseInt(request.getParameter("movieId"));
-		int session = Integer.parseInt(request.getParameter("sessionId"));
-		int ticketNo = Integer.parseInt(request.getParameter("ticketAmount"));
+		String movieIdString = request.getParameter("movieId");
+		String sessionIdString = request.getParameter("sessionId");
+		String ticketNoString = request.getParameter("ticketAmount");
+		
+		System.out.println("session id fault " + sessionIdString);
+		int session = Integer.valueOf(sessionIdString);
+		int ticketNo = Integer.valueOf(ticketNoString);
+		System.out.println("movie id fault " + Integer.valueOf(request.getParameter("movieId")));
+		int movieId = Integer.valueOf(movieIdString);
+		System.out.println("movie id fault" + movieId);
+		
 		SessionService sessionService = new SessionService();
 		Session session2 = sessionService.getSessionBySessionId(session);
 		if(ticketNo>session2.getAvailableSeats()) {
@@ -44,7 +52,8 @@ public class CustomerPaymentCommand extends FrontCommand{
 		boolean result = new TicketService().insertTicket(ticket, request.getSession().getId());
 		if (result== true) {
 			response.getWriter().write("successfully");
-			response.setHeader("refresh", "1;url="+request.getContextPath());
+			//response.setHeader("refresh", "1;url="+request.getContextPath());
+			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 		}else {
 			forward("/jsp/errorPage.jsp");
 		}

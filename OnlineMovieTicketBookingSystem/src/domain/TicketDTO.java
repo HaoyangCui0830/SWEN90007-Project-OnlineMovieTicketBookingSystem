@@ -7,9 +7,9 @@ import dataMapper.TicketMapper;
 public class TicketDTO{
 	private int ticket_id;
 	private String customerName;
-	private Movie movie;
-	private Session session;
-	private Cinema cinema;
+	private String movieDTOJSON;
+	private String sessionDTOJSON;
+	private String cinemaDTOJSON;
 	private int seatNumber;
 	
 
@@ -30,28 +30,28 @@ public class TicketDTO{
 		this.customerName = customerName;
 	}
 
-	public Movie getMovie() {
-		return movie;
+	public String getMovie() {
+		return movieDTOJSON;
 	}
 
-	public void setMovie(Movie movie) {
-		this.movie = movie;
+	public void setMovie(String movieDTOJSON) {
+		this.movieDTOJSON = movieDTOJSON;
 	}
 
-	public Session getSession() {
-		return session;
+	public String getSession() {
+		return sessionDTOJSON;
 	}
 
-	public void setSession(Session session) {
-		this.session = session;
+	public void setSession(String sessionDTOJSON) {
+		this.sessionDTOJSON = sessionDTOJSON;
 	}
 
-	public Cinema getCinema() {
-		return cinema;
+	public String getCinema() {
+		return cinemaDTOJSON;
 	}
 
-	public void setCinema(Cinema cinema) {
-		this.cinema = cinema;
+	public void setCinema(String cinemaDTOJSON) {
+		this.cinemaDTOJSON = cinemaDTOJSON;
 	}
 
 	public int getSeatNumber() {

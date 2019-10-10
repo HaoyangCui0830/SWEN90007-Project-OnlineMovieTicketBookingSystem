@@ -2,7 +2,7 @@ package domain;
 
 import dataMapper.CinemaManagerMapper;
 
-public class CinemaManager extends DomainObject{
+public class CinemaManager extends User{
 
 	private int cinemaManagerId = -1;
 	private String firstNameString;

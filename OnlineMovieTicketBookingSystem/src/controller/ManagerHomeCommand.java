@@ -15,7 +15,7 @@ public class ManagerHomeCommand extends FrontCommand{
 	public void process() throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		User user = (User) request.getSession().getAttribute("user");
-		if(user==null) {
+		if(user==null || user.getRole().equals("manager")==false) {
 			response.getWriter().write("please login to check your tickets");
 			forward("/jsp/errorPage.jsp");
 		}

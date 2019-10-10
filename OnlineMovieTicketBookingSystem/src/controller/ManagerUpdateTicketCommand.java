@@ -20,7 +20,7 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		User user = (User) request.getSession().getAttribute("user");
-		if(user==null) {
+		if(user==null || user.getRole().equals("manager")==false) {
 			response.getWriter().write("please login to check your tickets");
 			forward("/jsp/errorPage.jsp");
 		}

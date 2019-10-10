@@ -11,9 +11,9 @@ public class TicketAssembler {
 	public static TicketDTO createTicketDTO(Ticket ticket) {
 		TicketDTO ticketDTO = new TicketDTO();
 		ticketDTO.setTicket_id(ticket.getTicket_id());
-		ticketDTO.setMovie(ticket.getMovie());
-		ticketDTO.setSession(ticket.getSession());
-		ticketDTO.setCinema(ticket.getCinema());
+		ticketDTO.setMovie(MovieDTO.serialize(MovieAssembler.createMovieDTO(ticket.getMovie())));
+		ticketDTO.setSession(SessionDTO.serialize(SessionAssembler.createSessionDTO(ticket.getSession())));
+		ticketDTO.setCinema(CinemaDTO.serialize(CinemaAssembler.createCinemaDTO(ticket.getCinema())));
 		ticketDTO.setCustomerName(ticket.getCustomerName());
 		ticketDTO.setSeatNumber(ticket.getSeatNumber());
 		return ticketDTO;
@@ -22,16 +22,16 @@ public class TicketAssembler {
 	public static boolean updateTicket(TicketDTO ticketDTO) {
 		Ticket ticket = new Ticket();
 		ticket.setTicket_id(ticketDTO.getTicket_id());
-		ticket.setMovie(ticketDTO.getMovie());
-		ticket.setSession(ticketDTO.getSession());
-		ticket.setCinema(ticketDTO.getCinema());
+		MovieAssembler.updateMovie(MovieDTO.deserialize(ticketDTO.getMovie()));
+		SessionAssembler.updateSession(SessionDTO.deserialize(ticketDTO.getSession()));
+		CinemaAssembler.updateCinema(CinemaDTO.deserialize(ticketDTO.getCinema()));
 		ticket.setCustomerName(ticketDTO.getCustomerName());
 		ticket.setSeatNumber(ticketDTO.getSeatNumber());
 		boolean result = false;
 		Ticket oldTicket = new TicketService().getTicketById(ticketDTO.getTicket_id());
 		Session oldSession = oldTicket.getSession();
 		oldSession.setAvailableSeats(oldSession.getAvailableSeats() + oldTicket.getSeatNumber());
-		Session newSession = ticketDTO.getSession();
+		Session newSession = new SessionMapper().findSessionById(SessionDTO.deserialize(ticketDTO.getSession()).getSessionId());
 		newSession.setAvailableSeats(newSession.getAvailableSeats() - ticketDTO.getSeatNumber());
 		if (newSession.getAvailableSeats() - ticketDTO.getSeatNumber() <0) {
 			System.out.println("new Session does not have enough seats");
@@ -51,12 +51,12 @@ public class TicketAssembler {
 	public static boolean addTicket(TicketDTO ticketDTO) {
 		Ticket ticket = new Ticket();
 		ticket.setTicket_id(ticketDTO.getTicket_id());
-		ticket.setMovie(ticketDTO.getMovie());
-		ticket.setSession(ticketDTO.getSession());
-		ticket.setCinema(ticketDTO.getCinema());
+		MovieAssembler.addMovie(MovieDTO.deserialize(ticketDTO.getMovie()));
+		SessionAssembler.addSession(SessionDTO.deserialize(ticketDTO.getSession()));
+		CinemaAssembler.addCinema(CinemaDTO.deserialize(ticketDTO.getCinema()));
 		ticket.setCustomerName(ticketDTO.getCustomerName());
 		ticket.setSeatNumber(ticketDTO.getSeatNumber());
-		Session session = ticketDTO.getSession();
+		Session session = new SessionMapper().findSessionById(SessionDTO.deserialize(ticketDTO.getSession()).getSessionId());
 		session.setAvailableSeats(session.getAvailableSeats() - ticketDTO.getSeatNumber());
 		boolean result = false;
 		try {

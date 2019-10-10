@@ -36,7 +36,7 @@
 	    </span>
 	  </div>
 	</nav>
-	
+	<img src="img/manager.jpg" class="img-rounded" alt="Cinque Terre" style="width:100%; opacity: 0.6;">
 	
 	<script src="js/bootstrap.js"></script>
 </body>

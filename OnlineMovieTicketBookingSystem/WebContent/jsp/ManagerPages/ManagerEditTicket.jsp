@@ -32,13 +32,13 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Movie ID</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="<%=ticket.getMovie().getMovieId() %>">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="movieId" value="<%=ticket.getMovie().getMovieId() %>"  readOnly="true">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">Session Id</span>
   </div>
-  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionId" value="<%=ticket.getSession().getSessionId() %>">
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name="sessionId" value="<%=ticket.getSession().getSessionId() %>"  readOnly="true">
 </div>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">

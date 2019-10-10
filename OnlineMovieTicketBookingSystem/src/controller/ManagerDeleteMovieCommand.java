@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
@@ -17,7 +18,7 @@ public class ManagerDeleteMovieCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		User user = (User) request.getSession().getAttribute("user");
-		if(user==null) {
+		if(user==null || user.getRole().equals("manager")==false) {
 			response.getWriter().write("please login to check your tickets");
 			forward("/jsp/errorPage.jsp");
 		}
@@ -31,6 +32,10 @@ public class ManagerDeleteMovieCommand extends FrontCommand{
 			if(result == true) {
 				request.setAttribute("movie", movie);
 				forward("/jsp/ManagerPages/ManagerHomePage.jsp");
+//				List<Movie> movies = movieService.getAllMovies();
+//				request.setAttribute("movies", movies);
+//				//request.getRequestDispatcher("/jsp/ManagerPages/ManagerViewAllMovies.jsp").forward(request, response);
+//				forward("/jsp/CustomerPages/CustomerViewAllMoviesPage.jsp");
 			}
 			else {
 				forward("/jsp/errorPage.jsp");

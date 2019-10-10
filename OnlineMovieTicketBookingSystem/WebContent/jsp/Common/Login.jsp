@@ -33,11 +33,10 @@
 </div>
 
 <div class="text-center">
-	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='FrontServlet?command=ToRegisterPage'" >Register</button>
 	<button  type="button" class="btn btn-secondary centered" onclick="javascript:location.href='FrontServlet?command=ToHomePage'" >back</button>
+	<button  type="button" class="btn centered btn-primary" onclick="javascript:location.href='FrontServlet?command=ToRegisterPage'" >Register</button>
 	<input type="submit" value="Login" class="btn btn-success centered"></input>
 	</div>
 </form>
-=
 </body>
 </html>

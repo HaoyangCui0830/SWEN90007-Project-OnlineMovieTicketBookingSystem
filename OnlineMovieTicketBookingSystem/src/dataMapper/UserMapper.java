@@ -77,6 +77,8 @@ public class UserMapper extends DataMapper{
 			stmt.setString(4, user.getUsername());
 			
 			result = stmt.executeUpdate();
+			stmt.close();
+			DBConnection.closeConnection();
 			
 		}
 		catch(SQLException e) {
@@ -110,6 +112,8 @@ public class UserMapper extends DataMapper{
 				identityMap.put(user.getUserId(), user);
 				result.add(user);
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			System.out.println(this.getClass().toString()+" view users Problem");
@@ -137,6 +141,8 @@ public class UserMapper extends DataMapper{
 				identityMap.put(user.getUserId(), user);
 				result = user;
 			}
+			stmt.close();
+			DBConnection.closeConnection();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
