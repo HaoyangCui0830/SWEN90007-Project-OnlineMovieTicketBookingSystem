@@ -123,12 +123,6 @@ public class TicketMapper extends DataMapper{
 				ticket.setSeatNumber(rs.getInt(6));
 				identityMap.put(ticket.getTicket_id(), ticket);
 				result.add(ticket);
-//				movie.setMovieId(rs.getInt(1));
-//				movie.setName(rs.getString(2));
-//				movie.setLength(rs.getTime(3));
-//				movie.setPrice(rs.getFloat(4));
-//				identityMap.put(movie.getMovieId(), movie);
-//				result.add(movie);
 			}
 			stmt.close();
 			DBConnection.closeConnection();

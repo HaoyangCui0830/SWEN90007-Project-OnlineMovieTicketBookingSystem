@@ -16,6 +16,7 @@ public class RegisterCommand extends FrontCommand{
 		String password2 = request.getParameter("password2");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
+		// user can only register as a customer
 		String role = "customer";
 		
 		if(!password1.equals(password2))
@@ -37,7 +38,6 @@ public class RegisterCommand extends FrontCommand{
 		uService.insertUser(newUser, request.getSession().getId());
 		response.getWriter().write("Register successfully");
 		request.getSession().setAttribute("user", newUser);
-		//response.setHeader("refresh", "1;url="+request.getContextPath());
 		forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 		
 	}

@@ -9,9 +9,13 @@ import domain.User;
 import service.SessionService;
 
 public class CustomerBuyTicketCommand extends FrontCommand{
+	/**
+	 * check whether users have logged in
+	 */
 	@Override
 	public void process() throws ServletException, IOException {
 		User user = (User)request.getSession().getAttribute("user");
+		// go to login page if not
 		if(user == null || user.getRole().equals("customer")==false) {
 			request.setAttribute("BuyTicketMsg","please login first");
 			forward("/jsp/Common/Login.jsp");

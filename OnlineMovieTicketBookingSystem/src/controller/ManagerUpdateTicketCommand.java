@@ -21,7 +21,7 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 	public void process() throws ServletException, IOException {
 		User user = (User) request.getSession().getAttribute("user");
 		if(user==null || user.getRole().equals("manager")==false) {
-			response.getWriter().write("please login to check your tickets");
+			response.getWriter().write("please login to view tickets");
 			forward("/jsp/errorPage.jsp");
 		}
 		else {
@@ -45,6 +45,11 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 			TicketService ticketService = new TicketService();
 			Ticket ticketBefore = ticketService.getTicketById(ticketNo);
 			Session sessionBefore = ticketBefore.getSession();
+			
+			/* if a manager change a ticket, the available seats of session before should be restore. 
+			 * check if session after has enough seats
+			 * */
+			
 			sessionBefore.setAvailableSeats(sessionBefore.getAvailableSeats() + ticketBefore.getSeatNumber());
 			if((session2.getAvailableSeats() - seat)>=0) {
 				session2.setAvailableSeats(session2.getAvailableSeats() - seat);
@@ -53,8 +58,8 @@ public class ManagerUpdateTicketCommand extends FrontCommand{
 				out.print("<script>alert('Sorry, there are not that many seats');</script>");
 				return;
 			}
-//			sessionService.updateSession(sessionBefore, request.getSession().getId());
-//			sessionService.updateSession(session2, request.getSession().getId());
+			
+			//update ticket, session before, session through unit of work
 			boolean result = ticketService.updateTicket(ticket,sessionBefore, request.getSession().getId());
 			System.out.print("ticket id"+ ticket.getId());
 			System.out.print("http session id"+ request.getSession().getId());

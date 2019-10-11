@@ -26,23 +26,8 @@ public class UserLoginCommand extends FrontCommand{
 		String password = request.getParameter("password");
 		UserService userService = new UserService();
 		User user = userService.getUserByUsername(username);
-//		if(user.getUsername()==null || !user.getPassword().equals(password)) {
-//			request.setAttribute("msg", "invalid username or password");
-//			request.getRequestDispatcher("/jsp/Common/Login.jsp").forward(request, response);
-//			return;
-//		}
-// 		if (user.getRole().equals("manager")) {
-// 			HttpSession httpSession = request.getSession();
-// 			httpSession.setAttribute("user", user);
-// 			httpSession.setMaxInactiveInterval(60*60*24);
-//			forward("/jsp/ManagerPages/ManagerHomePage.jsp");
-//		}else if (user.getRole().equals("customer")) {
-//			HttpSession httpSession = request.getSession();
-// 			httpSession.setAttribute("user", user);
-// 			httpSession.setMaxInactiveInterval(60*60*24);
-//			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
-//		}
 		
+		//use shiro to check security
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 		token.setRememberMe(true);
 		org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();

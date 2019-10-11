@@ -6,10 +6,8 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import domain.Movie;
 import domain.Ticket;
 import domain.User;
-import service.MovieService;
 import service.TicketService;
 
 public class ManagerViewAllTicketsCommand extends FrontCommand{

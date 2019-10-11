@@ -48,6 +48,7 @@ public class TicketService {
 	
 	public boolean deleteTicket(Ticket ticket, String owner) {
 
+		
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDeleted(ticket);
 		UnitOfWork.getCurrent().registerDirty(ticket.getSession());
@@ -57,10 +58,8 @@ public class TicketService {
 	}
 	
 	public boolean updateTicket(Ticket ticket, Session oldSession, String owner) {
-//		Ticket oldTicket = new TicketService().getTicketById(ticket.getTicket_id());
-//		Session oldSession = oldTicket.getSession();
-//		oldSession.setAvailableSeats(oldSession.getAvailableSeats() + oldTicket.getSeatNumber());
-		
+
+		//when a ticket is going to be updated, session and old session should be updated as well
 		UnitOfWork.newCurrent();
 		UnitOfWork.getCurrent().registerDirty(ticket);
 		UnitOfWork.getCurrent().registerDirty(ticket.getSession());

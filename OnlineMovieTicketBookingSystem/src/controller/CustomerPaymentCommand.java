@@ -40,19 +40,17 @@ public class CustomerPaymentCommand extends FrontCommand{
 		String cinema = request.getParameter("cinemaId");
 		String customerName = request.getParameter("customerName");
 		Cinema cinema2 = new CinemaService().getCinemaById(Integer.parseInt(cinema));
-//		System.out.println(cinema2.getName());
+
 		
 		MovieService movieService = new MovieService();
 		Movie movie = movieService.getMovieById(movieId);
 
 		Ticket ticket = new Ticket(customerName, cinema2, movie, session2, ticketNo);
-//		System.out.println(ticket);
-		
+
 		session2.setAvailableSeats(session2.getAvailableSeats() - ticketNo);
 		boolean result = new TicketService().insertTicket(ticket, request.getSession().getId());
 		if (result== true) {
 			response.getWriter().write("successfully");
-			//response.setHeader("refresh", "1;url="+request.getContextPath());
 			forward("/jsp/CustomerPages/CustomerHomePage.jsp");
 		}else {
 			forward("/jsp/errorPage.jsp");

@@ -15,6 +15,7 @@ public class CustomerViewTicketsCommand extends FrontCommand{
 	@Override
 	public void process() throws ServletException, IOException {
 		User user = (User) request.getSession().getAttribute("user");
+		//check user through session
 		if(user==null || user.getRole().equals("customer")==false) {
 			response.getWriter().write("please login to check your tickets");
 			forward("/jsp/errorPage.jsp");
