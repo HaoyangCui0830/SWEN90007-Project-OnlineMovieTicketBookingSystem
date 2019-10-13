@@ -5,8 +5,8 @@ The Project code is in OnlineMovieTicketBookingSystetm -> src
 
 The User interface jsp file is in OnlineMovieTicketBookingSystetm -> WebContent -> jsp, Bootstrap is used for building the web pages
 
-One Submission 2 Documentation copy is placed in the Documentations folder.
+One Submission 3 Documentation copy is placed in the Documentations folder.
 
 Any other issues or confusion, feel free to contact me: haoyangc@student.unimelb.edu.au
 
-# Submission 1 documentation is also in the Documentation folder, which could be used for checking if there is anything confused about our project proposal.
+# Submission 1&2 documentation is also in the Documentation folder, which could be used for checking if there is anything confused about our project proposal.
