@@ -6,4 +6,3 @@ The Project code is in OnlineMovieTicketBookingSystetm -> src
 
 The User interface jsp file is in OnlineMovieTicketBookingSystetm -> WebContent -> jsp
 
-One Submission 3 Documentation copy is placed in the Documentations folder.
